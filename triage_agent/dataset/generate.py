@@ -473,7 +473,7 @@ def inc_014():
     return incident("INC-014", "PowerShell with ExecutionPolicy Bypass on several workstations", alert(
         "PowerShell download cradle / policy bypass", "medium", "powershell.exe -ExecutionPolicy Bypass ran on 4 workstations and downloaded a package.",
         {"hosts": ["wks-jdoe", "wks-mlee", "wks-kchen", "wks-asmith"]}, [ids[0]], ev[0]["ts"]), {
-        "verdict": "false_positive", "severity": "low",
+        "verdict": "benign_true_positive", "severity": "low",
         "techniques": [], "required_techniques": [],
         "key_evidence": [ids[0], ids[1]],
         "expected_actions": [],
@@ -535,7 +535,7 @@ def inc_017():
     return incident("INC-017", "200 GB transferred from file server overnight", alert(
         "Large internal data transfer", "medium", "file-srv-02 sent ~200 GB to 10.40.9.2 between 22:05 and 23:05 UTC.",
         {"src_ip": "10.40.1.8", "dst_ip": "10.40.9.2"}, ids[:1], ev[0]["ts"]), {
-        "verdict": "false_positive", "severity": "low",
+        "verdict": "benign_true_positive", "severity": "low",
         "techniques": [], "required_techniques": [],
         "key_evidence": [ids[0]],
         "expected_actions": [],

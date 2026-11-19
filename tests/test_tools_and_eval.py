@@ -123,4 +123,14 @@ def test_baseline_runs_on_every_incident_and_has_known_weaknesses():
     assert s["incidents"] == 18
     # The playbook can't tell an authorised scanner or admin from an attacker.
     assert s["verdict_accuracy"] < 0.9
-    assert "| Verdict accuracy" in evaluate.markdown_table({"baseline": s})
+    assert "| Malicious vs benign" in evaluate.markdown_table({"baseline": s})
+
+
+def test_injection_text_is_flagged_and_nothing_else_is():
+    from triage_agent.tools import flag_injection
+
+    flagged = {iid: sum("_warning" in flag_injection(e) for e in load_incident(iid)["events"]) for iid in list_incidents()}
+    assert flagged.pop("INC-015") > 0
+    assert not any(flagged.values())
+    res, _ = call(ws("INC-015"), "search_logs", user="kchen", source="auth")
+    assert any("_warning" in e for e in res["events"])

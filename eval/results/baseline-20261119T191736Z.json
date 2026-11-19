@@ -3,7 +3,8 @@
   "summary": {
     "incidents": 18,
     "completed_rate": 1.0,
-    "verdict_accuracy": 0.722,
+    "malicious_accuracy": 0.833,
+    "verdict_accuracy": 0.611,
     "malicious_detection_recall": 0.833,
     "false_escalation_rate": 0.167,
     "severity_exact": 0.444,
@@ -1100,7 +1101,7 @@
         "duration_s": 0.0
       },
       "labels": {
-        "verdict": "false_positive",
+        "verdict": "benign_true_positive",
         "severity": "low",
         "techniques": [],
         "required_techniques": [],
@@ -1126,7 +1127,7 @@
       },
       "grade": {
         "completed": true,
-        "verdict_correct": true,
+        "verdict_correct": false,
         "malicious_correct": true,
         "severity_exact": false,
         "severity_within_one": true,
@@ -1332,7 +1333,7 @@
         "duration_s": 0.0
       },
       "labels": {
-        "verdict": "false_positive",
+        "verdict": "benign_true_positive",
         "severity": "low",
         "techniques": [],
         "required_techniques": [],
@@ -1357,7 +1358,7 @@
       },
       "grade": {
         "completed": true,
-        "verdict_correct": true,
+        "verdict_correct": false,
         "malicious_correct": true,
         "severity_exact": false,
         "severity_within_one": true,

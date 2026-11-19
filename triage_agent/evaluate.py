@@ -87,6 +87,7 @@ def summarise(rows: list[dict]) -> dict:
     return {
         "incidents": len(rows),
         "completed_rate": mean("completed"),
+        "malicious_accuracy": mean("malicious_correct"),
         "verdict_accuracy": mean("verdict_correct"),
         "malicious_detection_recall": round(tp / len(malicious), 3) if malicious else None,
         "false_escalation_rate": round(fp / len(benign), 3) if benign else None,
@@ -107,7 +108,8 @@ def summarise(rows: list[dict]) -> dict:
 
 
 METRIC_LABELS = [
-    ("verdict_accuracy", "Verdict accuracy (3-way)", "pct"),
+    ("malicious_accuracy", "Malicious vs benign: correct", "pct"),
+    ("verdict_accuracy", "Exact verdict (3-way)", "pct"),
     ("malicious_detection_recall", "Malicious incidents caught", "pct"),
     ("false_escalation_rate", "Benign incidents escalated (lower is better)", "pct"),
     ("severity_within_one", "Severity within one level", "pct"),

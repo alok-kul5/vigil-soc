@@ -1692,7 +1692,7 @@
   }
  ],
  "labels": {
-  "verdict": "false_positive",
+  "verdict": "benign_true_positive",
   "severity": "low",
   "techniques": [],
   "required_techniques": [],
