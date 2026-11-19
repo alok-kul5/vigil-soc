@@ -15,7 +15,7 @@ prompt-injection attempt.
 
 ## Results
 
-Evaluation of the local model is running; its column is added here when it finishes.
+The table shows the rule-based baseline. Run `python -m triage_agent.cli eval` to score the agent on your own machine (about an hour on a laptop GPU).
 
 | Metric | Rule-based baseline |
 |---|---:|
