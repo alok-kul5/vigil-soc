@@ -1,0 +1,155 @@
+{
+ "hosts": {
+  "vpn-gw-01": {
+   "ip": "10.0.0.5",
+   "role": "VPN gateway",
+   "criticality": "high",
+   "owner": "IT Infrastructure"
+  },
+  "wks-jdoe": {
+   "ip": "10.30.4.21",
+   "role": "workstation",
+   "criticality": "medium",
+   "owner": "jdoe"
+  },
+  "wks-asmith": {
+   "ip": "10.30.4.35",
+   "role": "workstation",
+   "criticality": "medium",
+   "owner": "asmith"
+  },
+  "wks-mlee": {
+   "ip": "10.30.4.48",
+   "role": "workstation",
+   "criticality": "medium",
+   "owner": "mlee"
+  },
+  "wks-rpatel": {
+   "ip": "10.30.5.12",
+   "role": "workstation",
+   "criticality": "medium",
+   "owner": "rpatel"
+  },
+  "wks-kchen": {
+   "ip": "10.30.5.40",
+   "role": "workstation",
+   "criticality": "medium",
+   "owner": "kchen"
+  },
+  "web-pub-01": {
+   "ip": "10.50.0.10",
+   "role": "public web server (IIS), DMZ",
+   "criticality": "high",
+   "owner": "Web Team"
+  },
+  "vuln-scanner-01": {
+   "ip": "10.20.0.5",
+   "role": "authorised vulnerability scanner",
+   "criticality": "medium",
+   "owner": "Security Team",
+   "notes": "Weekly authenticated scan, Tuesdays 01:00-05:00 UTC. Change CHG-2291."
+  },
+  "app-srv-07": {
+   "ip": "10.40.2.17",
+   "role": "Linux application server",
+   "criticality": "high",
+   "owner": "Platform Team"
+  },
+  "file-srv-02": {
+   "ip": "10.40.1.8",
+   "role": "Windows file server",
+   "criticality": "critical",
+   "owner": "IT Infrastructure"
+  },
+  "jump-02": {
+   "ip": "10.40.0.30",
+   "role": "admin jump host",
+   "criticality": "high",
+   "owner": "IT Infrastructure"
+  },
+  "sccm-01": {
+   "ip": "10.10.1.20",
+   "role": "software deployment server (SCCM)",
+   "criticality": "high",
+   "owner": "IT Operations",
+   "notes": "Pushes signed PowerShell deployment scripts to all workstations."
+  },
+  "backup-01": {
+   "ip": "10.40.9.2",
+   "role": "backup server",
+   "criticality": "high",
+   "owner": "IT Infrastructure",
+   "notes": "Nightly backups from file servers 22:00-03:00 UTC."
+  },
+  "fw-edge-01": {
+   "ip": "10.0.0.1",
+   "role": "edge firewall",
+   "criticality": "critical",
+   "owner": "Network Team"
+  }
+ },
+ "users": {
+  "jdoe": {
+   "name": "Jane Doe",
+   "department": "Finance",
+   "title": "Accountant",
+   "status": "active",
+   "location": "Boston, US"
+  },
+  "asmith": {
+   "name": "Alex Smith",
+   "department": "Sales",
+   "title": "Account Executive",
+   "status": "active",
+   "location": "Boston, US",
+   "notes": "Frequent traveller; approved travel to Germany 2026-11-08 to 2026-11-15."
+  },
+  "mlee": {
+   "name": "Morgan Lee",
+   "department": "Engineering",
+   "title": "Developer",
+   "status": "active",
+   "location": "Boston, US"
+  },
+  "rpatel": {
+   "name": "Ravi Patel",
+   "department": "Product",
+   "title": "Product Manager",
+   "status": "notice period",
+   "location": "Boston, US",
+   "notes": "Resigned; last day 2026-11-14. Joining a competitor."
+  },
+  "kchen": {
+   "name": "Kim Chen",
+   "department": "Finance",
+   "title": "Controller",
+   "status": "active",
+   "location": "Boston, US"
+  },
+  "it-admin": {
+   "name": "Sam Okafor",
+   "department": "IT",
+   "title": "Systems Administrator",
+   "status": "active",
+   "location": "Boston, US",
+   "privileged": true,
+   "notes": "Approved change CHG-2304: patch file servers 2026-11-10 14:00-18:00 UTC using PsExec from jump-02."
+  },
+  "svc-backup": {
+   "name": "Backup service account",
+   "department": "IT",
+   "title": "service account",
+   "status": "active"
+  },
+  "svc-web": {
+   "name": "IIS application pool identity",
+   "department": "IT",
+   "title": "service account",
+   "status": "active"
+  }
+ },
+ "ip_ranges": {
+  "10.0.0.0/8": "corporate internal network",
+  "198.51.100.20/32": "Contoso corporate VPN egress (Frankfurt PoP)"
+ }
+}

@@ -1,0 +1,211 @@
+{
+ "ips": {
+  "203.0.113.45": {
+   "reputation": "malicious",
+   "score": 92,
+   "categories": [
+    "brute-force",
+    "credential-stuffing"
+   ],
+   "country": "RU",
+   "asn": "AS64501 Bulletproof Hosting Ltd",
+   "reports": 418,
+   "last_seen": "2026-11-09"
+  },
+  "203.0.113.77": {
+   "reputation": "malicious",
+   "score": 88,
+   "categories": [
+    "password-spray"
+   ],
+   "country": "CN",
+   "asn": "AS64502 Cloud VPS",
+   "reports": 211,
+   "last_seen": "2026-11-10"
+  },
+  "198.51.100.20": {
+   "reputation": "benign",
+   "score": 0,
+   "categories": [],
+   "country": "DE",
+   "asn": "AS64496 Contoso Corp (corporate VPN egress)",
+   "reports": 0,
+   "last_seen": null
+  },
+  "203.0.113.150": {
+   "reputation": "malicious",
+   "score": 95,
+   "categories": [
+    "c2",
+    "malware-distribution"
+   ],
+   "country": "NL",
+   "asn": "AS64503 Hostingz",
+   "reports": 97,
+   "last_seen": "2026-11-10"
+  },
+  "198.51.100.66": {
+   "reputation": "suspicious",
+   "score": 60,
+   "categories": [
+    "scanner",
+    "exploit-attempts"
+   ],
+   "country": "US",
+   "asn": "AS64504 Cheap VPS Inc",
+   "reports": 35,
+   "last_seen": "2026-11-08"
+  },
+  "203.0.113.200": {
+   "reputation": "malicious",
+   "score": 80,
+   "categories": [
+    "mining-pool"
+   ],
+   "country": "SG",
+   "asn": "AS64505 Pool Hosting",
+   "reports": 54,
+   "last_seen": "2026-11-10"
+  },
+  "192.0.2.10": {
+   "reputation": "malicious",
+   "score": 90,
+   "categories": [
+    "tor-exit",
+    "anonymizer"
+   ],
+   "country": "SE",
+   "asn": "AS64506 Tor Exit Relays",
+   "reports": 1203,
+   "last_seen": "2026-11-10"
+  },
+  "192.0.2.99": {
+   "reputation": "suspicious",
+   "score": 45,
+   "categories": [
+    "scanner"
+   ],
+   "country": "BR",
+   "asn": "AS64507 Residential ISP",
+   "reports": 12,
+   "last_seen": "2026-11-09"
+  },
+  "198.51.100.140": {
+   "reputation": "benign",
+   "score": 2,
+   "categories": [
+    "residential"
+   ],
+   "country": "US",
+   "asn": "AS64508 Comcastic Residential",
+   "reports": 0,
+   "last_seen": null
+  },
+  "198.51.100.88": {
+   "reputation": "unknown",
+   "score": 10,
+   "categories": [
+    "file-sharing-cdn"
+   ],
+   "country": "NZ",
+   "asn": "AS64509 FileShare Drop Ltd",
+   "reports": 1,
+   "last_seen": null
+  }
+ },
+ "domains": {
+  "invoice-portal.example": {
+   "reputation": "malicious",
+   "categories": [
+    "phishing",
+    "malware-distribution"
+   ],
+   "registered": "2026-11-07",
+   "registrar": "NameCheapo",
+   "resolves_to": [
+    "203.0.113.150"
+   ]
+  },
+  "cdn-update-check.example": {
+   "reputation": "malicious",
+   "categories": [
+    "c2"
+   ],
+   "registered": "2026-11-05",
+   "registrar": "NameCheapo",
+   "resolves_to": [
+    "203.0.113.150"
+   ]
+  },
+  "x7q9z.tunnel-svc.test": {
+   "reputation": "suspicious",
+   "categories": [
+    "newly-registered",
+    "dns-tunneling-pattern"
+   ],
+   "registered": "2026-11-09",
+   "registrar": "AnonReg",
+   "resolves_to": [
+    "203.0.113.150"
+   ]
+  },
+  "tunnel-svc.test": {
+   "reputation": "suspicious",
+   "categories": [
+    "newly-registered",
+    "dns-tunneling-pattern"
+   ],
+   "registered": "2026-11-09",
+   "registrar": "AnonReg",
+   "resolves_to": [
+    "203.0.113.150"
+   ]
+  },
+  "fileshare-drop.example": {
+   "reputation": "unknown",
+   "categories": [
+    "file-sharing",
+    "personal-storage"
+   ],
+   "registered": "2019-03-02",
+   "registrar": "GoodReg",
+   "resolves_to": [
+    "198.51.100.88"
+   ]
+  },
+  "pool.minexmr.test": {
+   "reputation": "malicious",
+   "categories": [
+    "crypto-mining"
+   ],
+   "registered": "2021-06-01",
+   "registrar": "AnonReg",
+   "resolves_to": [
+    "203.0.113.200"
+   ]
+  },
+  "sccm.corp.example": {
+   "reputation": "benign",
+   "categories": [
+    "internal"
+   ],
+   "registered": "2015-01-01",
+   "registrar": "internal",
+   "resolves_to": [
+    "10.10.1.20"
+   ]
+  },
+  "mail-forward.example": {
+   "reputation": "suspicious",
+   "categories": [
+    "free-email",
+    "newly-seen"
+   ],
+   "registered": "2026-10-30",
+   "registrar": "NameCheapo",
+   "resolves_to": [
+    "203.0.113.150"
+   ]
+  }
+ }
+}

@@ -1,0 +1,33 @@
+# Free and fully local: Ollama serves the model, the triage service talks to it.
+#   docker compose up -d
+#   docker compose exec ollama ollama pull qwen3:4b     # first time only (~2.5 GB)
+# Then open http://localhost:8000
+services:
+  ollama:
+    image: ollama/ollama:0.40.16
+    volumes:
+      - ollama:/root/.ollama
+    # Remove this block if you have no NVIDIA GPU; the model still runs on CPU, just slower.
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  triage:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      OLLAMA_URL: http://ollama:11434
+      TRIAGE_MODEL: ${TRIAGE_MODEL:-qwen3:4b}
+    volumes:
+      - runs:/data
+    depends_on:
+      - ollama
+
+volumes:
+  ollama:
+  runs:

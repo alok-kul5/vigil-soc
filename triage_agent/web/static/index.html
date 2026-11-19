@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alert Triage</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="bar">
+    <div class="brand"><span class="mark" aria-hidden="true"></span>Alert Triage <span class="muted">· local AI, human-approved</span></div>
+    <div class="right">
+      <label class="approver">Approving as <input id="approver" placeholder="your name" autocomplete="name"></label>
+      <span id="health" class="pill">…</span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="queue" aria-label="Alert queue">
+      <div class="queue-head">Alert queue <span id="queue-count" class="muted"></span></div>
+      <ul id="queue"></ul>
+    </aside>
+
+    <main id="detail" class="detail">
+      <div class="empty">Select an alert to investigate.</div>
+    </main>
+  </div>
+
+  <dialog id="evidence">
+    <form method="dialog"><button class="close" aria-label="Close">×</button></form>
+    <h3 id="evidence-title"></h3>
+    <pre id="evidence-body"></pre>
+  </dialog>
+</body>
+</html>

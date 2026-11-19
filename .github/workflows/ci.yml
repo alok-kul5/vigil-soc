@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: ruff check .
+      - name: Dataset is reproducible
+        run: |
+          python -m triage_agent.dataset.generate
+          git diff --exit-code triage_agent/data
+      - name: Tests (agent loop runs against a scripted fake client, no API key)
+        run: pytest -q
+      - name: Baseline evaluation
+        run: python -m triage_agent.cli eval --baseline-only
+      - name: Docker image builds
+        run: docker build -t triage-agent .

@@ -1,0 +1,1817 @@
+{
+ "id": "INC-010",
+ "title": "Repeated MFA denials followed by approval",
+ "alert": {
+  "rule": "MFA fatigue",
+  "severity": "high",
+  "summary": "14 MFA push denials then an approval for jdoe at 02:07 UTC.",
+  "entities": {
+   "user": "jdoe",
+   "src_ip": "203.0.113.45"
+  },
+  "triggering_event_ids": [
+   "EVT-949995",
+   "EVT-268012"
+  ],
+  "created": "2026-11-11T02:07:30Z"
+ },
+ "events": [
+  {
+   "id": "EVT-429634",
+   "ts": "2026-11-11T01:00:34.063211Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "kchen",
+   "host": "wks-kchen",
+   "src_ip": "10.30.6.199",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-663161",
+   "ts": "2026-11-11T01:01:51.749188Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "lmartin",
+   "host": "wks-mlee",
+   "src_ip": "10.30.3.198",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-755110",
+   "ts": "2026-11-11T01:02:33.613492Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "tgarcia",
+   "host": "wks-bwhite",
+   "src_ip": "10.30.9.164",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-374024",
+   "ts": "2026-11-11T01:03:13.139460Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "asmith",
+   "host": "wks-kchen",
+   "src_ip": "10.30.7.211",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-794219",
+   "ts": "2026-11-11T01:03:52.424514Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "mlee",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.7.19",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-974819",
+   "ts": "2026-11-11T01:04:38.997623Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "bwhite",
+   "host": "wks-rpatel",
+   "src_ip": "10.30.4.170",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-694789",
+   "ts": "2026-11-11T01:05:10.168900Z",
+   "source": "proxy",
+   "user": "ckim",
+   "host": "wks-bwhite",
+   "url": "https://teams.example/",
+   "domain": "github.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 6598
+  },
+  {
+   "id": "EVT-146194",
+   "ts": "2026-11-11T01:05:23.744378Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "lmartin",
+   "host": "wks-bwhite",
+   "src_ip": "10.30.3.34",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-265376",
+   "ts": "2026-11-11T01:07:54.217448Z",
+   "source": "proxy",
+   "user": "bwhite",
+   "host": "wks-rpatel",
+   "url": "https://cdn.jsdelivr.example/assets/app.js",
+   "domain": "salesforce.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 1444
+  },
+  {
+   "id": "EVT-420653",
+   "ts": "2026-11-11T01:07:55.522062Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "rpatel",
+   "host": "wks-kchen",
+   "src_ip": "10.30.1.56",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-579066",
+   "ts": "2026-11-11T01:09:49.450455Z",
+   "source": "proxy",
+   "user": "asmith",
+   "host": "wks-tgarcia",
+   "url": "https://outlook.office.example/login",
+   "domain": "wiki.corp.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 6201
+  },
+  {
+   "id": "EVT-454940",
+   "ts": "2026-11-11T01:10:28.877590Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-bwhite",
+   "user": "jdoe",
+   "process": "excel.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "excel.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-249797",
+   "ts": "2026-11-11T01:14:43.119375Z",
+   "source": "proxy",
+   "user": "kchen",
+   "host": "wks-kchen",
+   "url": "https://wiki.corp.example/",
+   "domain": "cdn.jsdelivr.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 3036
+  },
+  {
+   "id": "EVT-974145",
+   "ts": "2026-11-11T01:14:57.349441Z",
+   "source": "dns",
+   "host": "wks-bwhite",
+   "query": "wiki.corp.example",
+   "qtype": "A",
+   "answer": "198.18.50.89"
+  },
+  {
+   "id": "EVT-761416",
+   "ts": "2026-11-11T01:15:42.648974Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "asmith",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.4.147",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-584601",
+   "ts": "2026-11-11T01:16:10.264044Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-jdoe",
+   "user": "tgarcia",
+   "process": "chrome.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "chrome.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-890299",
+   "ts": "2026-11-11T01:16:51.231816Z",
+   "source": "dns",
+   "host": "wks-tgarcia",
+   "query": "outlook.office.example",
+   "qtype": "A",
+   "answer": "198.18.132.163"
+  },
+  {
+   "id": "EVT-233800",
+   "ts": "2026-11-11T01:18:11.161952Z",
+   "source": "proxy",
+   "user": "bwhite",
+   "host": "wks-kchen",
+   "url": "https://outlook.office.example/assets/app.js",
+   "domain": "teams.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 888
+  },
+  {
+   "id": "EVT-661649",
+   "ts": "2026-11-11T01:18:33.206318Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "jdoe",
+   "host": "wks-mlee",
+   "src_ip": "10.30.4.92",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-145236",
+   "ts": "2026-11-11T01:19:42.260560Z",
+   "source": "proxy",
+   "user": "mlee",
+   "host": "wks-rpatel",
+   "url": "https://github.example/login",
+   "domain": "update.microsoft.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 2835
+  },
+  {
+   "id": "EVT-435789",
+   "ts": "2026-11-11T01:19:43.347260Z",
+   "source": "dns",
+   "host": "wks-jdoe",
+   "query": "update.microsoft.example",
+   "qtype": "A",
+   "answer": "198.18.151.90"
+  },
+  {
+   "id": "EVT-304111",
+   "ts": "2026-11-11T01:19:46.697661Z",
+   "source": "dns",
+   "host": "wks-mlee",
+   "query": "github.example",
+   "qtype": "A",
+   "answer": "198.18.40.152"
+  },
+  {
+   "id": "EVT-703265",
+   "ts": "2026-11-11T01:21:30.469669Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "ckim",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.4.166",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-181250",
+   "ts": "2026-11-11T01:21:39.990214Z",
+   "source": "proxy",
+   "user": "ckim",
+   "host": "wks-rpatel",
+   "url": "https://cdn.jsdelivr.example/",
+   "domain": "github.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 8037
+  },
+  {
+   "id": "EVT-885843",
+   "ts": "2026-11-11T01:21:43.715365Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "nnguyen",
+   "host": "wks-rpatel",
+   "src_ip": "10.30.8.105",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-107400",
+   "ts": "2026-11-11T01:22:37.207061Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-kchen",
+   "user": "tgarcia",
+   "process": "chrome.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "chrome.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-915084",
+   "ts": "2026-11-11T01:23:14.934942Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "nnguyen",
+   "host": "wks-asmith",
+   "src_ip": "10.30.8.16",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-567253",
+   "ts": "2026-11-11T01:23:17.455465Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-rpatel",
+   "user": "bwhite",
+   "process": "excel.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "excel.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-576130",
+   "ts": "2026-11-11T01:23:31.621770Z",
+   "source": "proxy",
+   "user": "lmartin",
+   "host": "wks-asmith",
+   "url": "https://outlook.office.example/",
+   "domain": "github.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 8317
+  },
+  {
+   "id": "EVT-299265",
+   "ts": "2026-11-11T01:23:45.636901Z",
+   "source": "proxy",
+   "user": "lmartin",
+   "host": "wks-asmith",
+   "url": "https://cdn.jsdelivr.example/api",
+   "domain": "cdn.jsdelivr.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 7079
+  },
+  {
+   "id": "EVT-505095",
+   "ts": "2026-11-11T01:23:57.192420Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "kchen",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.4.65",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-858027",
+   "ts": "2026-11-11T01:24:00.013356Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "ckim",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.6.44",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-500716",
+   "ts": "2026-11-11T01:26:57.246900Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "rpatel",
+   "host": "wks-bwhite",
+   "src_ip": "10.30.3.216",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-228142",
+   "ts": "2026-11-11T01:27:02.290441Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-bwhite",
+   "user": "ckim",
+   "process": "svchost.exe",
+   "parent_process": "services.exe",
+   "cmdline": "svchost.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-686276",
+   "ts": "2026-11-11T01:27:12.424572Z",
+   "source": "proxy",
+   "user": "mlee",
+   "host": "wks-jdoe",
+   "url": "https://github.example/api",
+   "domain": "cdn.jsdelivr.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 6201
+  },
+  {
+   "id": "EVT-995235",
+   "ts": "2026-11-11T01:30:32.750738Z",
+   "source": "proxy",
+   "user": "nnguyen",
+   "host": "wks-bwhite",
+   "url": "https://cdn.jsdelivr.example/api",
+   "domain": "teams.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 2838
+  },
+  {
+   "id": "EVT-272456",
+   "ts": "2026-11-11T01:31:13.623576Z",
+   "source": "dns",
+   "host": "wks-tgarcia",
+   "query": "outlook.office.example",
+   "qtype": "A",
+   "answer": "198.18.16.15"
+  },
+  {
+   "id": "EVT-188450",
+   "ts": "2026-11-11T01:32:14.985232Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-asmith",
+   "user": "rpatel",
+   "process": "chrome.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "chrome.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-698501",
+   "ts": "2026-11-11T01:32:22.651150Z",
+   "source": "dns",
+   "host": "wks-rpatel",
+   "query": "github.example",
+   "qtype": "A",
+   "answer": "198.18.101.206"
+  },
+  {
+   "id": "EVT-701669",
+   "ts": "2026-11-11T01:32:50.476853Z",
+   "source": "proxy",
+   "user": "mlee",
+   "host": "wks-tgarcia",
+   "url": "https://outlook.office.example/login",
+   "domain": "github.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 5913
+  },
+  {
+   "id": "EVT-301040",
+   "ts": "2026-11-11T01:33:43.117994Z",
+   "source": "proxy",
+   "user": "lmartin",
+   "host": "wks-tgarcia",
+   "url": "https://outlook.office.example/api",
+   "domain": "teams.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 7208
+  },
+  {
+   "id": "EVT-487638",
+   "ts": "2026-11-11T01:34:09.850472Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "tgarcia",
+   "host": "wks-bwhite",
+   "src_ip": "10.30.1.217",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-379998",
+   "ts": "2026-11-11T01:34:22.047760Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "ckim",
+   "host": "wks-kchen",
+   "src_ip": "10.30.3.223",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-436870",
+   "ts": "2026-11-11T01:35:15.202611Z",
+   "source": "dns",
+   "host": "wks-asmith",
+   "query": "news.example",
+   "qtype": "A",
+   "answer": "198.18.198.112"
+  },
+  {
+   "id": "EVT-397792",
+   "ts": "2026-11-11T01:41:07.908264Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "bwhite",
+   "host": "wks-mlee",
+   "src_ip": "10.30.9.230",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-894850",
+   "ts": "2026-11-11T01:42:17.658778Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "nnguyen",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.8.76",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-277278",
+   "ts": "2026-11-11T01:43:53.370533Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "mlee",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.1.197",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-732491",
+   "ts": "2026-11-11T01:45:53.291618Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "bwhite",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.7.222",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-168049",
+   "ts": "2026-11-11T01:46:12.159431Z",
+   "source": "dns",
+   "host": "wks-kchen",
+   "query": "cdn.jsdelivr.example",
+   "qtype": "A",
+   "answer": "198.18.10.208"
+  },
+  {
+   "id": "EVT-837098",
+   "ts": "2026-11-11T01:46:34.899814Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "kchen",
+   "host": "wks-bwhite",
+   "src_ip": "10.30.5.169",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-102967",
+   "ts": "2026-11-11T01:48:53.536343Z",
+   "source": "proxy",
+   "user": "mlee",
+   "host": "wks-kchen",
+   "url": "https://update.microsoft.example/",
+   "domain": "cdn.jsdelivr.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 878
+  },
+  {
+   "id": "EVT-579124",
+   "ts": "2026-11-11T01:49:42.686177Z",
+   "source": "proxy",
+   "user": "kchen",
+   "host": "wks-rpatel",
+   "url": "https://github.example/login",
+   "domain": "salesforce.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 2478
+  },
+  {
+   "id": "EVT-127372",
+   "ts": "2026-11-11T01:49:45.922359Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "rpatel",
+   "host": "wks-kchen",
+   "src_ip": "10.30.9.137",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-974913",
+   "ts": "2026-11-11T01:50:21.007472Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-tgarcia",
+   "user": "jdoe",
+   "process": "code.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "code.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-155746",
+   "ts": "2026-11-11T01:50:31.338211Z",
+   "source": "proxy",
+   "user": "kchen",
+   "host": "wks-bwhite",
+   "url": "https://outlook.office.example/login",
+   "domain": "teams.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 6240
+  },
+  {
+   "id": "EVT-181123",
+   "ts": "2026-11-11T01:50:49.205139Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "mlee",
+   "host": "wks-bwhite",
+   "src_ip": "10.30.1.246",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-114667",
+   "ts": "2026-11-11T01:51:32.762238Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "ckim",
+   "host": "wks-bwhite",
+   "src_ip": "10.30.3.181",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-366332",
+   "ts": "2026-11-11T01:51:39.442768Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "ckim",
+   "host": "wks-kchen",
+   "src_ip": "10.30.5.100",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-696229",
+   "ts": "2026-11-11T01:52:35.110346Z",
+   "source": "dns",
+   "host": "wks-rpatel",
+   "query": "cdn.jsdelivr.example",
+   "qtype": "A",
+   "answer": "198.18.208.156"
+  },
+  {
+   "id": "EVT-151948",
+   "ts": "2026-11-11T01:52:39.376401Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "jdoe",
+   "host": "wks-asmith",
+   "src_ip": "10.30.5.246",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-843798",
+   "ts": "2026-11-11T01:52:41.146090Z",
+   "source": "proxy",
+   "user": "bwhite",
+   "host": "wks-asmith",
+   "url": "https://outlook.office.example/assets/app.js",
+   "domain": "update.microsoft.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 8308
+  },
+  {
+   "id": "EVT-711646",
+   "ts": "2026-11-11T01:52:41.756246Z",
+   "source": "proxy",
+   "user": "bwhite",
+   "host": "wks-tgarcia",
+   "url": "https://wiki.corp.example/",
+   "domain": "outlook.office.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 5662
+  },
+  {
+   "id": "EVT-614358",
+   "ts": "2026-11-11T01:55:05.773736Z",
+   "source": "dns",
+   "host": "wks-kchen",
+   "query": "news.example",
+   "qtype": "A",
+   "answer": "198.18.167.81"
+  },
+  {
+   "id": "EVT-565646",
+   "ts": "2026-11-11T01:56:41.571439Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "mlee",
+   "host": "wks-kchen",
+   "src_ip": "10.30.3.218",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-859303",
+   "ts": "2026-11-11T01:57:28.438586Z",
+   "source": "proxy",
+   "user": "ckim",
+   "host": "wks-kchen",
+   "url": "https://salesforce.example/login",
+   "domain": "github.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 7909
+  },
+  {
+   "id": "EVT-661641",
+   "ts": "2026-11-11T01:58:00.714368Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "nnguyen",
+   "host": "wks-asmith",
+   "src_ip": "10.30.4.99",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-129794",
+   "ts": "2026-11-11T01:58:48.430098Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-tgarcia",
+   "user": "mlee",
+   "process": "outlook.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "outlook.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-507098",
+   "ts": "2026-11-11T01:59:18.067719Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-kchen",
+   "user": "lmartin",
+   "process": "excel.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "excel.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-632183",
+   "ts": "2026-11-11T01:59:23.037705Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "kchen",
+   "host": "wks-rpatel",
+   "src_ip": "10.30.5.131",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-544058",
+   "ts": "2026-11-11T01:59:44.669758Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "kchen",
+   "host": "wks-rpatel",
+   "src_ip": "10.30.9.186",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-666644",
+   "ts": "2026-11-11T01:59:53.096380Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "mlee",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.7.141",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-699159",
+   "ts": "2026-11-11T02:00:00Z",
+   "source": "auth",
+   "event": "mfa_push",
+   "user": "jdoe",
+   "result": "denied",
+   "src_ip": "203.0.113.45",
+   "service": "sso"
+  },
+  {
+   "id": "EVT-134167",
+   "ts": "2026-11-11T02:00:30Z",
+   "source": "auth",
+   "event": "mfa_push",
+   "user": "jdoe",
+   "result": "denied",
+   "src_ip": "203.0.113.45",
+   "service": "sso"
+  },
+  {
+   "id": "EVT-836883",
+   "ts": "2026-11-11T02:00:45.429818Z",
+   "source": "dns",
+   "host": "wks-rpatel",
+   "query": "outlook.office.example",
+   "qtype": "A",
+   "answer": "198.18.86.14"
+  },
+  {
+   "id": "EVT-374482",
+   "ts": "2026-11-11T02:00:51.568612Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "jdoe",
+   "host": "wks-mlee",
+   "src_ip": "10.30.6.64",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-549722",
+   "ts": "2026-11-11T02:01:00Z",
+   "source": "auth",
+   "event": "mfa_push",
+   "user": "jdoe",
+   "result": "denied",
+   "src_ip": "203.0.113.45",
+   "service": "sso"
+  },
+  {
+   "id": "EVT-576135",
+   "ts": "2026-11-11T02:01:24.058005Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "bwhite",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.3.29",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-606002",
+   "ts": "2026-11-11T02:01:30Z",
+   "source": "auth",
+   "event": "mfa_push",
+   "user": "jdoe",
+   "result": "denied",
+   "src_ip": "203.0.113.45",
+   "service": "sso"
+  },
+  {
+   "id": "EVT-706172",
+   "ts": "2026-11-11T02:02:00Z",
+   "source": "auth",
+   "event": "mfa_push",
+   "user": "jdoe",
+   "result": "denied",
+   "src_ip": "203.0.113.45",
+   "service": "sso"
+  },
+  {
+   "id": "EVT-115552",
+   "ts": "2026-11-11T02:02:30Z",
+   "source": "auth",
+   "event": "mfa_push",
+   "user": "jdoe",
+   "result": "denied",
+   "src_ip": "203.0.113.45",
+   "service": "sso"
+  },
+  {
+   "id": "EVT-920788",
+   "ts": "2026-11-11T02:02:40.027355Z",
+   "source": "dns",
+   "host": "wks-mlee",
+   "query": "salesforce.example",
+   "qtype": "A",
+   "answer": "198.18.59.161"
+  },
+  {
+   "id": "EVT-650873",
+   "ts": "2026-11-11T02:02:43.669778Z",
+   "source": "dns",
+   "host": "wks-tgarcia",
+   "query": "update.microsoft.example",
+   "qtype": "A",
+   "answer": "198.18.123.189"
+  },
+  {
+   "id": "EVT-316109",
+   "ts": "2026-11-11T02:03:00Z",
+   "source": "auth",
+   "event": "mfa_push",
+   "user": "jdoe",
+   "result": "denied",
+   "src_ip": "203.0.113.45",
+   "service": "sso"
+  },
+  {
+   "id": "EVT-585050",
+   "ts": "2026-11-11T02:03:30Z",
+   "source": "auth",
+   "event": "mfa_push",
+   "user": "jdoe",
+   "result": "denied",
+   "src_ip": "203.0.113.45",
+   "service": "sso"
+  },
+  {
+   "id": "EVT-413616",
+   "ts": "2026-11-11T02:03:34.958759Z",
+   "source": "dns",
+   "host": "wks-rpatel",
+   "query": "news.example",
+   "qtype": "A",
+   "answer": "198.18.126.86"
+  },
+  {
+   "id": "EVT-443999",
+   "ts": "2026-11-11T02:03:48.172813Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "mlee",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.3.124",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-952829",
+   "ts": "2026-11-11T02:04:00Z",
+   "source": "auth",
+   "event": "mfa_push",
+   "user": "jdoe",
+   "result": "denied",
+   "src_ip": "203.0.113.45",
+   "service": "sso"
+  },
+  {
+   "id": "EVT-615161",
+   "ts": "2026-11-11T02:04:30Z",
+   "source": "auth",
+   "event": "mfa_push",
+   "user": "jdoe",
+   "result": "denied",
+   "src_ip": "203.0.113.45",
+   "service": "sso"
+  },
+  {
+   "id": "EVT-214307",
+   "ts": "2026-11-11T02:04:51.366028Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "ckim",
+   "host": "wks-kchen",
+   "src_ip": "10.30.2.65",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-963595",
+   "ts": "2026-11-11T02:05:00Z",
+   "source": "auth",
+   "event": "mfa_push",
+   "user": "jdoe",
+   "result": "denied",
+   "src_ip": "203.0.113.45",
+   "service": "sso"
+  },
+  {
+   "id": "EVT-391001",
+   "ts": "2026-11-11T02:05:30Z",
+   "source": "auth",
+   "event": "mfa_push",
+   "user": "jdoe",
+   "result": "denied",
+   "src_ip": "203.0.113.45",
+   "service": "sso"
+  },
+  {
+   "id": "EVT-785215",
+   "ts": "2026-11-11T02:06:00Z",
+   "source": "auth",
+   "event": "mfa_push",
+   "user": "jdoe",
+   "result": "denied",
+   "src_ip": "203.0.113.45",
+   "service": "sso"
+  },
+  {
+   "id": "EVT-949995",
+   "ts": "2026-11-11T02:06:30Z",
+   "source": "auth",
+   "event": "mfa_push",
+   "user": "jdoe",
+   "result": "denied",
+   "src_ip": "203.0.113.45",
+   "service": "sso"
+  },
+  {
+   "id": "EVT-769691",
+   "ts": "2026-11-11T02:06:35.042317Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "asmith",
+   "host": "wks-mlee",
+   "src_ip": "10.30.5.198",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-718870",
+   "ts": "2026-11-11T02:07:04.063745Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "lmartin",
+   "host": "wks-mlee",
+   "src_ip": "10.30.9.47",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-732210",
+   "ts": "2026-11-11T02:07:11.255531Z",
+   "source": "dns",
+   "host": "wks-tgarcia",
+   "query": "cdn.jsdelivr.example",
+   "qtype": "A",
+   "answer": "198.18.86.247"
+  },
+  {
+   "id": "EVT-268012",
+   "ts": "2026-11-11T02:07:30Z",
+   "source": "auth",
+   "event": "mfa_push",
+   "user": "jdoe",
+   "result": "approved",
+   "src_ip": "203.0.113.45",
+   "service": "sso"
+  },
+  {
+   "id": "EVT-136074",
+   "ts": "2026-11-11T02:07:36Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "jdoe",
+   "host": "sso",
+   "src_ip": "203.0.113.45",
+   "service": "sso",
+   "geo": "Moscow, RU"
+  },
+  {
+   "id": "EVT-470605",
+   "ts": "2026-11-11T02:08:34.098726Z",
+   "source": "proxy",
+   "user": "nnguyen",
+   "host": "wks-bwhite",
+   "url": "https://wiki.corp.example/api",
+   "domain": "update.microsoft.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 8817
+  },
+  {
+   "id": "EVT-491366",
+   "ts": "2026-11-11T02:08:43.668059Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-rpatel",
+   "user": "lmartin",
+   "process": "chrome.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "chrome.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-645961",
+   "ts": "2026-11-11T02:09:00Z",
+   "source": "identity",
+   "event": "mfa_device_registered",
+   "user": "jdoe",
+   "src_ip": "203.0.113.45",
+   "device": "Android 'Pixel-7'"
+  },
+  {
+   "id": "EVT-648813",
+   "ts": "2026-11-11T02:10:09.342353Z",
+   "source": "proxy",
+   "user": "kchen",
+   "host": "wks-tgarcia",
+   "url": "https://update.microsoft.example/assets/app.js",
+   "domain": "salesforce.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 8814
+  },
+  {
+   "id": "EVT-601537",
+   "ts": "2026-11-11T02:10:18.705520Z",
+   "source": "dns",
+   "host": "wks-rpatel",
+   "query": "outlook.office.example",
+   "qtype": "A",
+   "answer": "198.18.191.86"
+  },
+  {
+   "id": "EVT-613891",
+   "ts": "2026-11-11T02:12:00Z",
+   "source": "mailbox",
+   "event": "inbox_rule_created",
+   "user": "jdoe",
+   "src_ip": "203.0.113.45",
+   "rule": "name='.' conditions=subject contains 'invoice' OR 'payment' action=ForwardTo:jd.archive@mail-forward.example, MarkAsRead"
+  },
+  {
+   "id": "EVT-756317",
+   "ts": "2026-11-11T02:12:16.071080Z",
+   "source": "dns",
+   "host": "wks-mlee",
+   "query": "update.microsoft.example",
+   "qtype": "A",
+   "answer": "198.18.237.45"
+  },
+  {
+   "id": "EVT-764677",
+   "ts": "2026-11-11T02:12:26.770763Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-bwhite",
+   "user": "mlee",
+   "process": "chrome.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "chrome.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-221537",
+   "ts": "2026-11-11T02:12:50.040972Z",
+   "source": "dns",
+   "host": "wks-kchen",
+   "query": "update.microsoft.example",
+   "qtype": "A",
+   "answer": "198.18.43.108"
+  },
+  {
+   "id": "EVT-345786",
+   "ts": "2026-11-11T02:17:09.766965Z",
+   "source": "proxy",
+   "user": "jdoe",
+   "host": "wks-kchen",
+   "url": "https://salesforce.example/assets/app.js",
+   "domain": "wiki.corp.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 3310
+  },
+  {
+   "id": "EVT-550365",
+   "ts": "2026-11-11T02:17:17.424946Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-kchen",
+   "user": "bwhite",
+   "process": "teams.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "teams.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-986719",
+   "ts": "2026-11-11T02:19:00.186424Z",
+   "source": "proxy",
+   "user": "lmartin",
+   "host": "wks-bwhite",
+   "url": "https://news.example/login",
+   "domain": "wiki.corp.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 1113
+  },
+  {
+   "id": "EVT-583461",
+   "ts": "2026-11-11T02:19:13.141136Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "mlee",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.5.92",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-578145",
+   "ts": "2026-11-11T02:19:15.600057Z",
+   "source": "dns",
+   "host": "wks-jdoe",
+   "query": "teams.example",
+   "qtype": "A",
+   "answer": "198.18.187.207"
+  },
+  {
+   "id": "EVT-455828",
+   "ts": "2026-11-11T02:19:44.047490Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "ckim",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.7.53",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-769366",
+   "ts": "2026-11-11T02:20:57.362199Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "bwhite",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.7.85",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-515034",
+   "ts": "2026-11-11T02:21:11.983348Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "ckim",
+   "host": "wks-mlee",
+   "src_ip": "10.30.3.79",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-900035",
+   "ts": "2026-11-11T02:21:19.803142Z",
+   "source": "proxy",
+   "user": "bwhite",
+   "host": "wks-mlee",
+   "url": "https://news.example/",
+   "domain": "cdn.jsdelivr.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 991
+  },
+  {
+   "id": "EVT-346464",
+   "ts": "2026-11-11T02:21:23.790206Z",
+   "source": "proxy",
+   "user": "lmartin",
+   "host": "wks-bwhite",
+   "url": "https://cdn.jsdelivr.example/",
+   "domain": "cdn.jsdelivr.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 2239
+  },
+  {
+   "id": "EVT-441386",
+   "ts": "2026-11-11T02:22:28.179002Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "nnguyen",
+   "host": "wks-rpatel",
+   "src_ip": "10.30.6.89",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-335124",
+   "ts": "2026-11-11T02:22:49.718667Z",
+   "source": "dns",
+   "host": "wks-rpatel",
+   "query": "news.example",
+   "qtype": "A",
+   "answer": "198.18.174.139"
+  },
+  {
+   "id": "EVT-600512",
+   "ts": "2026-11-11T02:23:36.865069Z",
+   "source": "dns",
+   "host": "wks-tgarcia",
+   "query": "wiki.corp.example",
+   "qtype": "A",
+   "answer": "198.18.83.172"
+  },
+  {
+   "id": "EVT-525331",
+   "ts": "2026-11-11T02:23:43.700893Z",
+   "source": "proxy",
+   "user": "bwhite",
+   "host": "wks-tgarcia",
+   "url": "https://news.example/assets/app.js",
+   "domain": "github.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 3058
+  },
+  {
+   "id": "EVT-112348",
+   "ts": "2026-11-11T02:24:51.879596Z",
+   "source": "proxy",
+   "user": "asmith",
+   "host": "wks-bwhite",
+   "url": "https://cdn.jsdelivr.example/assets/app.js",
+   "domain": "teams.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 3728
+  },
+  {
+   "id": "EVT-229169",
+   "ts": "2026-11-11T02:26:03.507233Z",
+   "source": "dns",
+   "host": "wks-tgarcia",
+   "query": "outlook.office.example",
+   "qtype": "A",
+   "answer": "198.18.64.2"
+  },
+  {
+   "id": "EVT-309443",
+   "ts": "2026-11-11T02:27:47.882690Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "ckim",
+   "host": "wks-rpatel",
+   "src_ip": "10.30.7.225",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-301222",
+   "ts": "2026-11-11T02:28:33.080227Z",
+   "source": "dns",
+   "host": "wks-tgarcia",
+   "query": "github.example",
+   "qtype": "A",
+   "answer": "198.18.141.104"
+  },
+  {
+   "id": "EVT-295418",
+   "ts": "2026-11-11T02:31:12.238418Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "tgarcia",
+   "host": "wks-kchen",
+   "src_ip": "10.30.6.74",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-432782",
+   "ts": "2026-11-11T02:31:30.412292Z",
+   "source": "dns",
+   "host": "wks-rpatel",
+   "query": "github.example",
+   "qtype": "A",
+   "answer": "198.18.162.190"
+  },
+  {
+   "id": "EVT-854863",
+   "ts": "2026-11-11T02:32:01.530738Z",
+   "source": "dns",
+   "host": "wks-bwhite",
+   "query": "github.example",
+   "qtype": "A",
+   "answer": "198.18.96.21"
+  },
+  {
+   "id": "EVT-349953",
+   "ts": "2026-11-11T02:33:20.195591Z",
+   "source": "proxy",
+   "user": "nnguyen",
+   "host": "wks-jdoe",
+   "url": "https://salesforce.example/api",
+   "domain": "news.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 7064
+  },
+  {
+   "id": "EVT-964753",
+   "ts": "2026-11-11T02:34:23.241140Z",
+   "source": "proxy",
+   "user": "ckim",
+   "host": "wks-jdoe",
+   "url": "https://cdn.jsdelivr.example/login",
+   "domain": "update.microsoft.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 3092
+  },
+  {
+   "id": "EVT-713348",
+   "ts": "2026-11-11T02:34:24.073654Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-rpatel",
+   "user": "mlee",
+   "process": "code.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "code.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-557435",
+   "ts": "2026-11-11T02:35:11.653044Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "asmith",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.2.220",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-410155",
+   "ts": "2026-11-11T02:37:48.484783Z",
+   "source": "dns",
+   "host": "wks-kchen",
+   "query": "news.example",
+   "qtype": "A",
+   "answer": "198.18.178.8"
+  },
+  {
+   "id": "EVT-583122",
+   "ts": "2026-11-11T02:39:48.950180Z",
+   "source": "dns",
+   "host": "wks-mlee",
+   "query": "wiki.corp.example",
+   "qtype": "A",
+   "answer": "198.18.90.24"
+  },
+  {
+   "id": "EVT-660961",
+   "ts": "2026-11-11T02:41:24.259356Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "kchen",
+   "host": "wks-bwhite",
+   "src_ip": "10.30.6.195",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-360138",
+   "ts": "2026-11-11T02:42:39.718637Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "nnguyen",
+   "host": "wks-mlee",
+   "src_ip": "10.30.7.32",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-565410",
+   "ts": "2026-11-11T02:45:25.961797Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-rpatel",
+   "user": "rpatel",
+   "process": "chrome.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "chrome.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-353923",
+   "ts": "2026-11-11T02:45:35.481856Z",
+   "source": "proxy",
+   "user": "asmith",
+   "host": "wks-rpatel",
+   "url": "https://outlook.office.example/api",
+   "domain": "github.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 6983
+  },
+  {
+   "id": "EVT-875325",
+   "ts": "2026-11-11T02:46:14.644004Z",
+   "source": "proxy",
+   "user": "kchen",
+   "host": "wks-jdoe",
+   "url": "https://news.example/login",
+   "domain": "teams.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 1464
+  },
+  {
+   "id": "EVT-267026",
+   "ts": "2026-11-11T02:46:16.783120Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-rpatel",
+   "user": "bwhite",
+   "process": "teams.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "teams.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-711248",
+   "ts": "2026-11-11T02:47:29.837637Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "nnguyen",
+   "host": "wks-kchen",
+   "src_ip": "10.30.7.13",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-143908",
+   "ts": "2026-11-11T02:47:58.558682Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "bwhite",
+   "host": "wks-mlee",
+   "src_ip": "10.30.1.41",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-676451",
+   "ts": "2026-11-11T02:50:42.002944Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "ckim",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.2.127",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-991085",
+   "ts": "2026-11-11T02:51:13.574027Z",
+   "source": "dns",
+   "host": "wks-jdoe",
+   "query": "wiki.corp.example",
+   "qtype": "A",
+   "answer": "198.18.23.106"
+  },
+  {
+   "id": "EVT-284757",
+   "ts": "2026-11-11T02:53:14.309800Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "bwhite",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.3.215",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-148481",
+   "ts": "2026-11-11T02:56:07.154828Z",
+   "source": "proxy",
+   "user": "asmith",
+   "host": "wks-mlee",
+   "url": "https://cdn.jsdelivr.example/api",
+   "domain": "wiki.corp.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 1758
+  },
+  {
+   "id": "EVT-912228",
+   "ts": "2026-11-11T02:56:40.997185Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-rpatel",
+   "user": "mlee",
+   "process": "excel.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "excel.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-925482",
+   "ts": "2026-11-11T02:56:44.792891Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "jdoe",
+   "host": "wks-mlee",
+   "src_ip": "10.30.6.162",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-282954",
+   "ts": "2026-11-11T02:57:23.078000Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "asmith",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.2.64",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-825911",
+   "ts": "2026-11-11T02:58:43.066228Z",
+   "source": "dns",
+   "host": "wks-tgarcia",
+   "query": "salesforce.example",
+   "qtype": "A",
+   "answer": "198.18.24.169"
+  },
+  {
+   "id": "EVT-492295",
+   "ts": "2026-11-11T03:00:27.323984Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-tgarcia",
+   "user": "mlee",
+   "process": "chrome.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "chrome.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-656202",
+   "ts": "2026-11-11T03:01:20.611451Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "lmartin",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.1.10",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-878340",
+   "ts": "2026-11-11T03:03:28.376711Z",
+   "source": "proxy",
+   "user": "bwhite",
+   "host": "wks-asmith",
+   "url": "https://github.example/login",
+   "domain": "update.microsoft.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 1838
+  },
+  {
+   "id": "EVT-548395",
+   "ts": "2026-11-11T03:03:51.005174Z",
+   "source": "proxy",
+   "user": "jdoe",
+   "host": "wks-mlee",
+   "url": "https://teams.example/",
+   "domain": "salesforce.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 8935
+  },
+  {
+   "id": "EVT-519093",
+   "ts": "2026-11-11T03:04:03.333886Z",
+   "source": "dns",
+   "host": "wks-tgarcia",
+   "query": "update.microsoft.example",
+   "qtype": "A",
+   "answer": "198.18.124.97"
+  },
+  {
+   "id": "EVT-265731",
+   "ts": "2026-11-11T03:07:00.609844Z",
+   "source": "dns",
+   "host": "wks-asmith",
+   "query": "wiki.corp.example",
+   "qtype": "A",
+   "answer": "198.18.6.171"
+  },
+  {
+   "id": "EVT-715710",
+   "ts": "2026-11-11T03:07:07.505054Z",
+   "source": "proxy",
+   "user": "bwhite",
+   "host": "wks-mlee",
+   "url": "https://wiki.corp.example/assets/app.js",
+   "domain": "update.microsoft.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 8115
+  },
+  {
+   "id": "EVT-234528",
+   "ts": "2026-11-11T03:08:39.028939Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-tgarcia",
+   "user": "jdoe",
+   "process": "svchost.exe",
+   "parent_process": "services.exe",
+   "cmdline": "svchost.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-173388",
+   "ts": "2026-11-11T03:08:44.279181Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "lmartin",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.8.60",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-252577",
+   "ts": "2026-11-11T03:08:56.251552Z",
+   "source": "proxy",
+   "user": "bwhite",
+   "host": "wks-jdoe",
+   "url": "https://cdn.jsdelivr.example/assets/app.js",
+   "domain": "salesforce.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 1277
+  },
+  {
+   "id": "EVT-964203",
+   "ts": "2026-11-11T03:09:21.386911Z",
+   "source": "proxy",
+   "user": "nnguyen",
+   "host": "wks-kchen",
+   "url": "https://update.microsoft.example/assets/app.js",
+   "domain": "github.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 6096
+  },
+  {
+   "id": "EVT-562999",
+   "ts": "2026-11-11T03:12:22.746588Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-jdoe",
+   "user": "mlee",
+   "process": "chrome.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "chrome.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-385185",
+   "ts": "2026-11-11T03:14:53.730829Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-asmith",
+   "user": "jdoe",
+   "process": "outlook.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "outlook.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-401275",
+   "ts": "2026-11-11T03:14:56.370951Z",
+   "source": "proxy",
+   "user": "rpatel",
+   "host": "wks-jdoe",
+   "url": "https://update.microsoft.example/",
+   "domain": "cdn.jsdelivr.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 3869
+  },
+  {
+   "id": "EVT-548689",
+   "ts": "2026-11-11T03:17:21.106295Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "kchen",
+   "host": "wks-bwhite",
+   "src_ip": "10.30.7.82",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-613158",
+   "ts": "2026-11-11T03:18:55.078887Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "nnguyen",
+   "host": "wks-kchen",
+   "src_ip": "10.30.8.18",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-443582",
+   "ts": "2026-11-11T03:18:55.735058Z",
+   "source": "dns",
+   "host": "wks-kchen",
+   "query": "wiki.corp.example",
+   "qtype": "A",
+   "answer": "198.18.8.152"
+  },
+  {
+   "id": "EVT-788814",
+   "ts": "2026-11-11T03:19:39.290004Z",
+   "source": "dns",
+   "host": "wks-bwhite",
+   "query": "cdn.jsdelivr.example",
+   "qtype": "A",
+   "answer": "198.18.152.144"
+  }
+ ],
+ "labels": {
+  "verdict": "true_positive",
+  "severity": "high",
+  "techniques": [
+   "T1621",
+   "T1078",
+   "T1098",
+   "T1114.003"
+  ],
+  "required_techniques": [
+   "T1621",
+   "T1114.003"
+  ],
+  "key_evidence": [
+   "EVT-268012",
+   "EVT-136074",
+   "EVT-645961",
+   "EVT-613891"
+  ],
+  "expected_actions": [
+   [
+    "revoke_sessions|disable_account|reset_password",
+    "jdoe"
+   ],
+   [
+    "remove_mail_rule",
+    "jdoe|.*"
+   ],
+   [
+    "block_ip",
+    "203.0.113.45"
+   ]
+  ],
+  "forbidden_actions": []
+ }
+}

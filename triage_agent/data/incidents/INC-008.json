@@ -1,0 +1,3042 @@
+{
+ "id": "INC-008",
+ "title": "Internal host scanning many ports",
+ "alert": {
+  "rule": "Internal port scan",
+  "severity": "medium",
+  "summary": "10.20.0.5 connected to 120 host:port pairs in 6 minutes.",
+  "entities": {
+   "src_ip": "10.20.0.5"
+  },
+  "triggering_event_ids": [
+   "EVT-337718",
+   "EVT-488404",
+   "EVT-493603"
+  ],
+  "created": "2026-11-10T01:30:06Z"
+ },
+ "events": [
+  {
+   "id": "EVT-134730",
+   "ts": "2026-11-10T00:30:22.933425Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-jdoe",
+   "user": "rpatel",
+   "process": "code.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "code.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-178923",
+   "ts": "2026-11-10T00:31:42.912302Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "mlee",
+   "host": "wks-kchen",
+   "src_ip": "10.30.5.18",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-564281",
+   "ts": "2026-11-10T00:32:25.206291Z",
+   "source": "dns",
+   "host": "wks-rpatel",
+   "query": "teams.example",
+   "qtype": "A",
+   "answer": "198.18.128.182"
+  },
+  {
+   "id": "EVT-946552",
+   "ts": "2026-11-10T00:32:48.202996Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-asmith",
+   "user": "rpatel",
+   "process": "chrome.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "chrome.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-522664",
+   "ts": "2026-11-10T00:32:57.349082Z",
+   "source": "proxy",
+   "user": "kchen",
+   "host": "wks-kchen",
+   "url": "https://wiki.corp.example/assets/app.js",
+   "domain": "wiki.corp.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 5044
+  },
+  {
+   "id": "EVT-451256",
+   "ts": "2026-11-10T00:33:07.626294Z",
+   "source": "proxy",
+   "user": "bwhite",
+   "host": "wks-rpatel",
+   "url": "https://news.example/",
+   "domain": "salesforce.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 7975
+  },
+  {
+   "id": "EVT-490561",
+   "ts": "2026-11-10T00:33:27.513232Z",
+   "source": "proxy",
+   "user": "lmartin",
+   "host": "wks-tgarcia",
+   "url": "https://wiki.corp.example/",
+   "domain": "cdn.jsdelivr.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 4062
+  },
+  {
+   "id": "EVT-708086",
+   "ts": "2026-11-10T00:33:35.612725Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "jdoe",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.3.116",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-153187",
+   "ts": "2026-11-10T00:34:17.933525Z",
+   "source": "proxy",
+   "user": "lmartin",
+   "host": "wks-tgarcia",
+   "url": "https://github.example/assets/app.js",
+   "domain": "news.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 6300
+  },
+  {
+   "id": "EVT-232391",
+   "ts": "2026-11-10T00:34:33.949874Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "mlee",
+   "host": "wks-rpatel",
+   "src_ip": "10.30.3.162",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-105755",
+   "ts": "2026-11-10T00:34:45.421746Z",
+   "source": "dns",
+   "host": "wks-mlee",
+   "query": "salesforce.example",
+   "qtype": "A",
+   "answer": "198.18.14.251"
+  },
+  {
+   "id": "EVT-842728",
+   "ts": "2026-11-10T00:36:37.224438Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "asmith",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.4.187",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-600701",
+   "ts": "2026-11-10T00:37:46.925326Z",
+   "source": "proxy",
+   "user": "bwhite",
+   "host": "wks-rpatel",
+   "url": "https://github.example/assets/app.js",
+   "domain": "wiki.corp.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 1268
+  },
+  {
+   "id": "EVT-236238",
+   "ts": "2026-11-10T00:38:07.347822Z",
+   "source": "proxy",
+   "user": "lmartin",
+   "host": "wks-jdoe",
+   "url": "https://github.example/assets/app.js",
+   "domain": "github.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 7676
+  },
+  {
+   "id": "EVT-669921",
+   "ts": "2026-11-10T00:38:24.310374Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-rpatel",
+   "user": "mlee",
+   "process": "teams.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "teams.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-655027",
+   "ts": "2026-11-10T00:40:16.934617Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-bwhite",
+   "user": "ckim",
+   "process": "code.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "code.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-901405",
+   "ts": "2026-11-10T00:40:25.088157Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "asmith",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.2.171",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-748782",
+   "ts": "2026-11-10T00:41:20.346920Z",
+   "source": "dns",
+   "host": "wks-mlee",
+   "query": "update.microsoft.example",
+   "qtype": "A",
+   "answer": "198.18.79.223"
+  },
+  {
+   "id": "EVT-336474",
+   "ts": "2026-11-10T00:41:45.339388Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "ckim",
+   "host": "wks-rpatel",
+   "src_ip": "10.30.6.118",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-340579",
+   "ts": "2026-11-10T00:42:08.018308Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "ckim",
+   "host": "wks-kchen",
+   "src_ip": "10.30.4.130",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-435459",
+   "ts": "2026-11-10T00:42:24.399136Z",
+   "source": "proxy",
+   "user": "kchen",
+   "host": "wks-kchen",
+   "url": "https://teams.example/api",
+   "domain": "salesforce.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 1380
+  },
+  {
+   "id": "EVT-900444",
+   "ts": "2026-11-10T00:42:43.356744Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "jdoe",
+   "host": "wks-asmith",
+   "src_ip": "10.30.1.30",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-508690",
+   "ts": "2026-11-10T00:43:03.786853Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-mlee",
+   "user": "jdoe",
+   "process": "outlook.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "outlook.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-860767",
+   "ts": "2026-11-10T00:45:51.771745Z",
+   "source": "dns",
+   "host": "wks-bwhite",
+   "query": "github.example",
+   "qtype": "A",
+   "answer": "198.18.225.132"
+  },
+  {
+   "id": "EVT-565717",
+   "ts": "2026-11-10T00:48:10.177980Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "lmartin",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.3.92",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-365296",
+   "ts": "2026-11-10T00:49:12.543841Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "bwhite",
+   "host": "wks-kchen",
+   "src_ip": "10.30.7.170",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-285266",
+   "ts": "2026-11-10T00:49:20.338473Z",
+   "source": "dns",
+   "host": "wks-jdoe",
+   "query": "news.example",
+   "qtype": "A",
+   "answer": "198.18.42.76"
+  },
+  {
+   "id": "EVT-141442",
+   "ts": "2026-11-10T00:49:46.582511Z",
+   "source": "dns",
+   "host": "wks-jdoe",
+   "query": "cdn.jsdelivr.example",
+   "qtype": "A",
+   "answer": "198.18.53.55"
+  },
+  {
+   "id": "EVT-732186",
+   "ts": "2026-11-10T00:50:57.990919Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "kchen",
+   "host": "wks-mlee",
+   "src_ip": "10.30.5.135",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-806603",
+   "ts": "2026-11-10T00:51:00.958376Z",
+   "source": "dns",
+   "host": "wks-kchen",
+   "query": "cdn.jsdelivr.example",
+   "qtype": "A",
+   "answer": "198.18.242.94"
+  },
+  {
+   "id": "EVT-762522",
+   "ts": "2026-11-10T00:51:23.069502Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "mlee",
+   "host": "wks-kchen",
+   "src_ip": "10.30.8.111",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-682240",
+   "ts": "2026-11-10T00:51:32.254503Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "lmartin",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.6.158",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-518823",
+   "ts": "2026-11-10T00:52:04.524915Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "mlee",
+   "host": "wks-kchen",
+   "src_ip": "10.30.6.26",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-438268",
+   "ts": "2026-11-10T00:53:35.310561Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "asmith",
+   "host": "wks-asmith",
+   "src_ip": "10.30.3.185",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-389309",
+   "ts": "2026-11-10T00:55:00.247870Z",
+   "source": "proxy",
+   "user": "jdoe",
+   "host": "wks-rpatel",
+   "url": "https://wiki.corp.example/api",
+   "domain": "wiki.corp.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 5600
+  },
+  {
+   "id": "EVT-918141",
+   "ts": "2026-11-10T00:55:23.989028Z",
+   "source": "proxy",
+   "user": "asmith",
+   "host": "wks-tgarcia",
+   "url": "https://teams.example/assets/app.js",
+   "domain": "teams.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 3096
+  },
+  {
+   "id": "EVT-393214",
+   "ts": "2026-11-10T00:55:31.767339Z",
+   "source": "dns",
+   "host": "wks-mlee",
+   "query": "wiki.corp.example",
+   "qtype": "A",
+   "answer": "198.18.21.186"
+  },
+  {
+   "id": "EVT-631202",
+   "ts": "2026-11-10T00:56:19.906660Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-jdoe",
+   "user": "tgarcia",
+   "process": "excel.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "excel.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-682797",
+   "ts": "2026-11-10T00:57:02.084807Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "jdoe",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.3.70",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-143108",
+   "ts": "2026-11-10T00:57:34.460757Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "kchen",
+   "host": "wks-asmith",
+   "src_ip": "10.30.2.81",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-635798",
+   "ts": "2026-11-10T00:57:44.606078Z",
+   "source": "proxy",
+   "user": "asmith",
+   "host": "wks-rpatel",
+   "url": "https://news.example/",
+   "domain": "teams.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 8758
+  },
+  {
+   "id": "EVT-914086",
+   "ts": "2026-11-10T00:58:14.847526Z",
+   "source": "dns",
+   "host": "wks-asmith",
+   "query": "wiki.corp.example",
+   "qtype": "A",
+   "answer": "198.18.69.89"
+  },
+  {
+   "id": "EVT-331848",
+   "ts": "2026-11-10T00:58:33.041286Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-jdoe",
+   "user": "ckim",
+   "process": "outlook.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "outlook.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-690688",
+   "ts": "2026-11-10T01:01:11.548347Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "ckim",
+   "host": "wks-asmith",
+   "src_ip": "10.30.6.178",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-998457",
+   "ts": "2026-11-10T01:03:45.032150Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "bwhite",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.5.96",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-116473",
+   "ts": "2026-11-10T01:04:04.146145Z",
+   "source": "proxy",
+   "user": "tgarcia",
+   "host": "wks-mlee",
+   "url": "https://salesforce.example/login",
+   "domain": "wiki.corp.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 5928
+  },
+  {
+   "id": "EVT-796592",
+   "ts": "2026-11-10T01:04:46.109676Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-bwhite",
+   "user": "asmith",
+   "process": "code.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "code.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-740157",
+   "ts": "2026-11-10T01:05:10.284329Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-jdoe",
+   "user": "lmartin",
+   "process": "code.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "code.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-282895",
+   "ts": "2026-11-10T01:06:57.713617Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-rpatel",
+   "user": "asmith",
+   "process": "code.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "code.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-441982",
+   "ts": "2026-11-10T01:07:00.738192Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-tgarcia",
+   "user": "mlee",
+   "process": "excel.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "excel.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-134242",
+   "ts": "2026-11-10T01:07:17.274322Z",
+   "source": "proxy",
+   "user": "rpatel",
+   "host": "wks-jdoe",
+   "url": "https://wiki.corp.example/",
+   "domain": "outlook.office.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 2558
+  },
+  {
+   "id": "EVT-873106",
+   "ts": "2026-11-10T01:07:21.266381Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-kchen",
+   "user": "tgarcia",
+   "process": "svchost.exe",
+   "parent_process": "services.exe",
+   "cmdline": "svchost.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-832893",
+   "ts": "2026-11-10T01:07:51.351922Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "bwhite",
+   "host": "wks-kchen",
+   "src_ip": "10.30.5.90",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-326412",
+   "ts": "2026-11-10T01:08:41.420705Z",
+   "source": "dns",
+   "host": "wks-jdoe",
+   "query": "news.example",
+   "qtype": "A",
+   "answer": "198.18.209.141"
+  },
+  {
+   "id": "EVT-795385",
+   "ts": "2026-11-10T01:08:47.154390Z",
+   "source": "dns",
+   "host": "wks-asmith",
+   "query": "cdn.jsdelivr.example",
+   "qtype": "A",
+   "answer": "198.18.59.43"
+  },
+  {
+   "id": "EVT-876539",
+   "ts": "2026-11-10T01:08:48.685869Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "mlee",
+   "host": "wks-bwhite",
+   "src_ip": "10.30.5.209",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-445762",
+   "ts": "2026-11-10T01:09:05.051287Z",
+   "source": "proxy",
+   "user": "mlee",
+   "host": "wks-mlee",
+   "url": "https://cdn.jsdelivr.example/",
+   "domain": "teams.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 3982
+  },
+  {
+   "id": "EVT-367045",
+   "ts": "2026-11-10T01:09:37.968937Z",
+   "source": "proxy",
+   "user": "nnguyen",
+   "host": "wks-kchen",
+   "url": "https://outlook.office.example/",
+   "domain": "update.microsoft.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 6331
+  },
+  {
+   "id": "EVT-150836",
+   "ts": "2026-11-10T01:09:58.504307Z",
+   "source": "proxy",
+   "user": "rpatel",
+   "host": "wks-jdoe",
+   "url": "https://teams.example/api",
+   "domain": "update.microsoft.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 5379
+  },
+  {
+   "id": "EVT-674560",
+   "ts": "2026-11-10T01:10:20.742160Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "nnguyen",
+   "host": "wks-rpatel",
+   "src_ip": "10.30.1.126",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-529696",
+   "ts": "2026-11-10T01:10:52.066136Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "lmartin",
+   "host": "wks-rpatel",
+   "src_ip": "10.30.3.93",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-347763",
+   "ts": "2026-11-10T01:11:11.775963Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "bwhite",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.9.4",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-118564",
+   "ts": "2026-11-10T01:11:18.015661Z",
+   "source": "proxy",
+   "user": "mlee",
+   "host": "wks-asmith",
+   "url": "https://salesforce.example/login",
+   "domain": "github.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 1658
+  },
+  {
+   "id": "EVT-183754",
+   "ts": "2026-11-10T01:12:08.049266Z",
+   "source": "proxy",
+   "user": "lmartin",
+   "host": "wks-bwhite",
+   "url": "https://news.example/",
+   "domain": "wiki.corp.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 5157
+  },
+  {
+   "id": "EVT-571950",
+   "ts": "2026-11-10T01:12:42.532415Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "rpatel",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.8.110",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-286315",
+   "ts": "2026-11-10T01:13:48.279116Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "jdoe",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.9.203",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-483825",
+   "ts": "2026-11-10T01:14:18.182855Z",
+   "source": "dns",
+   "host": "wks-bwhite",
+   "query": "wiki.corp.example",
+   "qtype": "A",
+   "answer": "198.18.179.84"
+  },
+  {
+   "id": "EVT-782063",
+   "ts": "2026-11-10T01:17:04.700754Z",
+   "source": "dns",
+   "host": "wks-bwhite",
+   "query": "wiki.corp.example",
+   "qtype": "A",
+   "answer": "198.18.189.11"
+  },
+  {
+   "id": "EVT-213447",
+   "ts": "2026-11-10T01:19:30.966576Z",
+   "source": "proxy",
+   "user": "tgarcia",
+   "host": "wks-bwhite",
+   "url": "https://outlook.office.example/api",
+   "domain": "outlook.office.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 7750
+  },
+  {
+   "id": "EVT-450872",
+   "ts": "2026-11-10T01:20:20.861664Z",
+   "source": "proxy",
+   "user": "kchen",
+   "host": "wks-jdoe",
+   "url": "https://cdn.jsdelivr.example/assets/app.js",
+   "domain": "update.microsoft.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 7437
+  },
+  {
+   "id": "EVT-403450",
+   "ts": "2026-11-10T01:21:58.330098Z",
+   "source": "proxy",
+   "user": "mlee",
+   "host": "wks-bwhite",
+   "url": "https://outlook.office.example/api",
+   "domain": "github.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 1935
+  },
+  {
+   "id": "EVT-743577",
+   "ts": "2026-11-10T01:23:01.011653Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "nnguyen",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.8.151",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-473125",
+   "ts": "2026-11-10T01:23:01.191700Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "kchen",
+   "host": "wks-asmith",
+   "src_ip": "10.30.1.241",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-339168",
+   "ts": "2026-11-10T01:23:09.829538Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "tgarcia",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.1.168",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-829841",
+   "ts": "2026-11-10T01:23:16.469624Z",
+   "source": "dns",
+   "host": "wks-mlee",
+   "query": "teams.example",
+   "qtype": "A",
+   "answer": "198.18.249.81"
+  },
+  {
+   "id": "EVT-970029",
+   "ts": "2026-11-10T01:23:32.062656Z",
+   "source": "proxy",
+   "user": "rpatel",
+   "host": "wks-tgarcia",
+   "url": "https://update.microsoft.example/api",
+   "domain": "news.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 8905
+  },
+  {
+   "id": "EVT-811970",
+   "ts": "2026-11-10T01:24:20.435414Z",
+   "source": "dns",
+   "host": "wks-tgarcia",
+   "query": "update.microsoft.example",
+   "qtype": "A",
+   "answer": "198.18.192.125"
+  },
+  {
+   "id": "EVT-476084",
+   "ts": "2026-11-10T01:24:25.816628Z",
+   "source": "proxy",
+   "user": "nnguyen",
+   "host": "wks-mlee",
+   "url": "https://outlook.office.example/assets/app.js",
+   "domain": "news.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 3137
+  },
+  {
+   "id": "EVT-410197",
+   "ts": "2026-11-10T01:24:31.968782Z",
+   "source": "dns",
+   "host": "wks-kchen",
+   "query": "wiki.corp.example",
+   "qtype": "A",
+   "answer": "198.18.182.201"
+  },
+  {
+   "id": "EVT-101264",
+   "ts": "2026-11-10T01:27:42.266853Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "lmartin",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.3.56",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-370414",
+   "ts": "2026-11-10T01:27:49.315959Z",
+   "source": "dns",
+   "host": "wks-tgarcia",
+   "query": "salesforce.example",
+   "qtype": "A",
+   "answer": "198.18.43.137"
+  },
+  {
+   "id": "EVT-158534",
+   "ts": "2026-11-10T01:28:03.879318Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "mlee",
+   "host": "wks-bwhite",
+   "src_ip": "10.30.6.92",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-809139",
+   "ts": "2026-11-10T01:28:14.614254Z",
+   "source": "proxy",
+   "user": "lmartin",
+   "host": "wks-bwhite",
+   "url": "https://cdn.jsdelivr.example/",
+   "domain": "cdn.jsdelivr.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 8002
+  },
+  {
+   "id": "EVT-918540",
+   "ts": "2026-11-10T01:28:29.806522Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-asmith",
+   "user": "kchen",
+   "process": "excel.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "excel.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-295121",
+   "ts": "2026-11-10T01:29:33.372770Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "asmith",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.8.199",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-815581",
+   "ts": "2026-11-10T01:29:49.016166Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-kchen",
+   "user": "mlee",
+   "process": "outlook.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "outlook.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-337718",
+   "ts": "2026-11-10T01:30:00Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.10",
+   "dst_port": 21,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-488404",
+   "ts": "2026-11-10T01:30:03Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.11",
+   "dst_port": 22,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-493603",
+   "ts": "2026-11-10T01:30:06Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.12",
+   "dst_port": 23,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-232467",
+   "ts": "2026-11-10T01:30:09Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.13",
+   "dst_port": 25,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-302497",
+   "ts": "2026-11-10T01:30:12Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.14",
+   "dst_port": 80,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-839054",
+   "ts": "2026-11-10T01:30:15Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.15",
+   "dst_port": 135,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-145905",
+   "ts": "2026-11-10T01:30:18Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.16",
+   "dst_port": 139,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-189323",
+   "ts": "2026-11-10T01:30:21Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.17",
+   "dst_port": 443,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-243490",
+   "ts": "2026-11-10T01:30:24Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.18",
+   "dst_port": 445,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-359460",
+   "ts": "2026-11-10T01:30:27Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.19",
+   "dst_port": 1433,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-950672",
+   "ts": "2026-11-10T01:30:30Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.20",
+   "dst_port": 3306,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-630957",
+   "ts": "2026-11-10T01:30:33Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.21",
+   "dst_port": 3389,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-319569",
+   "ts": "2026-11-10T01:30:36Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.22",
+   "dst_port": 5985,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-520175",
+   "ts": "2026-11-10T01:30:39Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.23",
+   "dst_port": 8080,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-773047",
+   "ts": "2026-11-10T01:30:42Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.24",
+   "dst_port": 8443,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-131765",
+   "ts": "2026-11-10T01:30:45Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.25",
+   "dst_port": 21,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-581436",
+   "ts": "2026-11-10T01:30:48Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.26",
+   "dst_port": 22,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-611078",
+   "ts": "2026-11-10T01:30:51Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.27",
+   "dst_port": 23,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-575143",
+   "ts": "2026-11-10T01:30:54Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.28",
+   "dst_port": 25,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-509445",
+   "ts": "2026-11-10T01:30:57Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.29",
+   "dst_port": 80,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-619026",
+   "ts": "2026-11-10T01:31:00Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.30",
+   "dst_port": 135,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-700965",
+   "ts": "2026-11-10T01:31:03Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.31",
+   "dst_port": 139,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-301568",
+   "ts": "2026-11-10T01:31:06Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.32",
+   "dst_port": 443,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-970864",
+   "ts": "2026-11-10T01:31:09Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.33",
+   "dst_port": 445,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-522244",
+   "ts": "2026-11-10T01:31:12Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.34",
+   "dst_port": 1433,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-193916",
+   "ts": "2026-11-10T01:31:15Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.35",
+   "dst_port": 3306,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-608663",
+   "ts": "2026-11-10T01:31:18Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.36",
+   "dst_port": 3389,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-345558",
+   "ts": "2026-11-10T01:31:21Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.37",
+   "dst_port": 5985,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-895894",
+   "ts": "2026-11-10T01:31:24Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.38",
+   "dst_port": 8080,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-120962",
+   "ts": "2026-11-10T01:31:27Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.39",
+   "dst_port": 8443,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-835221",
+   "ts": "2026-11-10T01:31:30Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.10",
+   "dst_port": 21,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-379725",
+   "ts": "2026-11-10T01:31:33Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.11",
+   "dst_port": 22,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-645445",
+   "ts": "2026-11-10T01:31:36Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.12",
+   "dst_port": 23,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-527466",
+   "ts": "2026-11-10T01:31:39Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.13",
+   "dst_port": 25,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-597363",
+   "ts": "2026-11-10T01:31:42Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.14",
+   "dst_port": 80,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-497489",
+   "ts": "2026-11-10T01:31:45Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.15",
+   "dst_port": 135,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-861268",
+   "ts": "2026-11-10T01:31:48Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.16",
+   "dst_port": 139,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-219255",
+   "ts": "2026-11-10T01:31:51Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.17",
+   "dst_port": 443,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-795166",
+   "ts": "2026-11-10T01:31:54Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.18",
+   "dst_port": 445,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-370906",
+   "ts": "2026-11-10T01:31:57Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.19",
+   "dst_port": 1433,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-201887",
+   "ts": "2026-11-10T01:32:00Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.20",
+   "dst_port": 3306,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-953784",
+   "ts": "2026-11-10T01:32:03Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.21",
+   "dst_port": 3389,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-166153",
+   "ts": "2026-11-10T01:32:06Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.22",
+   "dst_port": 5985,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-505137",
+   "ts": "2026-11-10T01:32:09Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.23",
+   "dst_port": 8080,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-750293",
+   "ts": "2026-11-10T01:32:12Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.24",
+   "dst_port": 8443,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-969827",
+   "ts": "2026-11-10T01:32:15Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.25",
+   "dst_port": 21,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-495528",
+   "ts": "2026-11-10T01:32:18Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.26",
+   "dst_port": 22,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-212961",
+   "ts": "2026-11-10T01:32:21Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.27",
+   "dst_port": 23,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-792944",
+   "ts": "2026-11-10T01:32:24Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.28",
+   "dst_port": 25,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-160874",
+   "ts": "2026-11-10T01:32:27Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.29",
+   "dst_port": 80,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-454878",
+   "ts": "2026-11-10T01:32:30Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.30",
+   "dst_port": 135,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-345806",
+   "ts": "2026-11-10T01:32:33Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.31",
+   "dst_port": 139,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-824881",
+   "ts": "2026-11-10T01:32:36Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.32",
+   "dst_port": 443,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-190235",
+   "ts": "2026-11-10T01:32:39Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.33",
+   "dst_port": 445,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-621751",
+   "ts": "2026-11-10T01:32:42Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.34",
+   "dst_port": 1433,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-781282",
+   "ts": "2026-11-10T01:32:45Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.35",
+   "dst_port": 3306,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-641915",
+   "ts": "2026-11-10T01:32:48Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.36",
+   "dst_port": 3389,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-318016",
+   "ts": "2026-11-10T01:32:51Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.37",
+   "dst_port": 5985,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-709785",
+   "ts": "2026-11-10T01:32:54Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.38",
+   "dst_port": 8080,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-751203",
+   "ts": "2026-11-10T01:32:56.178438Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "jdoe",
+   "host": "wks-kchen",
+   "src_ip": "10.30.2.7",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-947661",
+   "ts": "2026-11-10T01:32:57Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.39",
+   "dst_port": 8443,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-422563",
+   "ts": "2026-11-10T01:33:00.332161Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "tgarcia",
+   "host": "wks-mlee",
+   "src_ip": "10.30.7.85",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-249042",
+   "ts": "2026-11-10T01:33:00Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.10",
+   "dst_port": 21,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-736188",
+   "ts": "2026-11-10T01:33:03Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.11",
+   "dst_port": 22,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-167500",
+   "ts": "2026-11-10T01:33:06Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.12",
+   "dst_port": 23,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-665933",
+   "ts": "2026-11-10T01:33:09Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.13",
+   "dst_port": 25,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-139284",
+   "ts": "2026-11-10T01:33:12Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.14",
+   "dst_port": 80,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-612404",
+   "ts": "2026-11-10T01:33:15Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.15",
+   "dst_port": 135,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-835911",
+   "ts": "2026-11-10T01:33:18Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.16",
+   "dst_port": 139,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-303270",
+   "ts": "2026-11-10T01:33:21Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.17",
+   "dst_port": 443,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-255407",
+   "ts": "2026-11-10T01:33:24Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.18",
+   "dst_port": 445,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-707085",
+   "ts": "2026-11-10T01:33:27Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.19",
+   "dst_port": 1433,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-578426",
+   "ts": "2026-11-10T01:33:30Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.20",
+   "dst_port": 3306,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-864350",
+   "ts": "2026-11-10T01:33:33Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.21",
+   "dst_port": 3389,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-712752",
+   "ts": "2026-11-10T01:33:36Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.22",
+   "dst_port": 5985,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-566759",
+   "ts": "2026-11-10T01:33:39Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.23",
+   "dst_port": 8080,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-399529",
+   "ts": "2026-11-10T01:33:42Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.24",
+   "dst_port": 8443,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-684392",
+   "ts": "2026-11-10T01:33:45Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.25",
+   "dst_port": 21,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-474023",
+   "ts": "2026-11-10T01:33:48Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.26",
+   "dst_port": 22,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-996573",
+   "ts": "2026-11-10T01:33:51Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.27",
+   "dst_port": 23,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-546819",
+   "ts": "2026-11-10T01:33:54Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.28",
+   "dst_port": 25,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-241532",
+   "ts": "2026-11-10T01:33:57Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.29",
+   "dst_port": 80,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-265989",
+   "ts": "2026-11-10T01:34:00Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.30",
+   "dst_port": 135,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-901421",
+   "ts": "2026-11-10T01:34:03Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.31",
+   "dst_port": 139,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-730521",
+   "ts": "2026-11-10T01:34:06Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.32",
+   "dst_port": 443,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-202358",
+   "ts": "2026-11-10T01:34:09Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.33",
+   "dst_port": 445,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-657641",
+   "ts": "2026-11-10T01:34:12Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.34",
+   "dst_port": 1433,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-823707",
+   "ts": "2026-11-10T01:34:15Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.35",
+   "dst_port": 3306,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-429029",
+   "ts": "2026-11-10T01:34:18Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.36",
+   "dst_port": 3389,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-836252",
+   "ts": "2026-11-10T01:34:21Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.37",
+   "dst_port": 5985,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-474373",
+   "ts": "2026-11-10T01:34:24Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.38",
+   "dst_port": 8080,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-775184",
+   "ts": "2026-11-10T01:34:27Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.39",
+   "dst_port": 8443,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-984466",
+   "ts": "2026-11-10T01:34:30Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.10",
+   "dst_port": 21,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-618659",
+   "ts": "2026-11-10T01:34:33Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.11",
+   "dst_port": 22,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-628085",
+   "ts": "2026-11-10T01:34:36Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.12",
+   "dst_port": 23,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-754296",
+   "ts": "2026-11-10T01:34:39Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.13",
+   "dst_port": 25,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-307249",
+   "ts": "2026-11-10T01:34:42Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.14",
+   "dst_port": 80,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-535572",
+   "ts": "2026-11-10T01:34:45.154501Z",
+   "source": "proxy",
+   "user": "jdoe",
+   "host": "wks-kchen",
+   "url": "https://news.example/api",
+   "domain": "github.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 6665
+  },
+  {
+   "id": "EVT-423791",
+   "ts": "2026-11-10T01:34:45Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.15",
+   "dst_port": 135,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-257454",
+   "ts": "2026-11-10T01:34:48Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.16",
+   "dst_port": 139,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-473019",
+   "ts": "2026-11-10T01:34:51Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.17",
+   "dst_port": 443,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-654403",
+   "ts": "2026-11-10T01:34:54Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.18",
+   "dst_port": 445,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-398167",
+   "ts": "2026-11-10T01:34:57Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.19",
+   "dst_port": 1433,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-634554",
+   "ts": "2026-11-10T01:35:00Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.20",
+   "dst_port": 3306,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-788973",
+   "ts": "2026-11-10T01:35:03Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.21",
+   "dst_port": 3389,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-174890",
+   "ts": "2026-11-10T01:35:06Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.22",
+   "dst_port": 5985,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-947377",
+   "ts": "2026-11-10T01:35:09Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.23",
+   "dst_port": 8080,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-998338",
+   "ts": "2026-11-10T01:35:12Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.24",
+   "dst_port": 8443,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-632065",
+   "ts": "2026-11-10T01:35:15Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.25",
+   "dst_port": 21,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-835360",
+   "ts": "2026-11-10T01:35:18Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.26",
+   "dst_port": 22,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-671406",
+   "ts": "2026-11-10T01:35:21Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.27",
+   "dst_port": 23,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-330639",
+   "ts": "2026-11-10T01:35:24Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.28",
+   "dst_port": 25,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-460922",
+   "ts": "2026-11-10T01:35:27Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.29",
+   "dst_port": 80,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-355733",
+   "ts": "2026-11-10T01:35:30Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.30",
+   "dst_port": 135,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-112495",
+   "ts": "2026-11-10T01:35:33Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.31",
+   "dst_port": 139,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-410070",
+   "ts": "2026-11-10T01:35:36Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.32",
+   "dst_port": 443,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-459904",
+   "ts": "2026-11-10T01:35:39Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.33",
+   "dst_port": 445,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-330467",
+   "ts": "2026-11-10T01:35:42Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.34",
+   "dst_port": 1433,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-379804",
+   "ts": "2026-11-10T01:35:45Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.35",
+   "dst_port": 3306,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-135288",
+   "ts": "2026-11-10T01:35:48Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.0.36",
+   "dst_port": 3389,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-543969",
+   "ts": "2026-11-10T01:35:51Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.1.37",
+   "dst_port": 5985,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-367148",
+   "ts": "2026-11-10T01:35:54Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.2.38",
+   "dst_port": 8080,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-495235",
+   "ts": "2026-11-10T01:35:57Z",
+   "source": "firewall",
+   "src_ip": "10.20.0.5",
+   "dst_ip": "10.40.3.39",
+   "dst_port": 8443,
+   "action": "allow"
+  },
+  {
+   "id": "EVT-924095",
+   "ts": "2026-11-10T01:36:17.410026Z",
+   "source": "proxy",
+   "user": "nnguyen",
+   "host": "wks-kchen",
+   "url": "https://github.example/login",
+   "domain": "github.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 4665
+  },
+  {
+   "id": "EVT-221154",
+   "ts": "2026-11-10T01:36:20.370755Z",
+   "source": "dns",
+   "host": "wks-bwhite",
+   "query": "wiki.corp.example",
+   "qtype": "A",
+   "answer": "198.18.204.160"
+  },
+  {
+   "id": "EVT-436533",
+   "ts": "2026-11-10T01:36:36.003480Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-tgarcia",
+   "user": "mlee",
+   "process": "code.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "code.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-742286",
+   "ts": "2026-11-10T01:36:56.249583Z",
+   "source": "dns",
+   "host": "wks-kchen",
+   "query": "github.example",
+   "qtype": "A",
+   "answer": "198.18.238.21"
+  },
+  {
+   "id": "EVT-247210",
+   "ts": "2026-11-10T01:37:43.367351Z",
+   "source": "proxy",
+   "user": "lmartin",
+   "host": "wks-rpatel",
+   "url": "https://github.example/",
+   "domain": "news.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 577
+  },
+  {
+   "id": "EVT-859577",
+   "ts": "2026-11-10T01:38:00.493400Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-kchen",
+   "user": "asmith",
+   "process": "code.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "code.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-744346",
+   "ts": "2026-11-10T01:38:00.702912Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-jdoe",
+   "user": "mlee",
+   "process": "code.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "code.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-230301",
+   "ts": "2026-11-10T01:38:26.748386Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-bwhite",
+   "user": "nnguyen",
+   "process": "excel.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "excel.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-345364",
+   "ts": "2026-11-10T01:39:49.677455Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "asmith",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.8.104",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-744233",
+   "ts": "2026-11-10T01:41:05.514530Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-rpatel",
+   "user": "asmith",
+   "process": "code.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "code.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-499652",
+   "ts": "2026-11-10T01:42:46.827140Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "kchen",
+   "host": "wks-rpatel",
+   "src_ip": "10.30.9.250",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-191273",
+   "ts": "2026-11-10T01:43:40.604534Z",
+   "source": "proxy",
+   "user": "jdoe",
+   "host": "wks-tgarcia",
+   "url": "https://github.example/",
+   "domain": "news.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 4635
+  },
+  {
+   "id": "EVT-465208",
+   "ts": "2026-11-10T01:43:54.456960Z",
+   "source": "dns",
+   "host": "wks-asmith",
+   "query": "cdn.jsdelivr.example",
+   "qtype": "A",
+   "answer": "198.18.15.134"
+  },
+  {
+   "id": "EVT-370924",
+   "ts": "2026-11-10T01:44:28.122526Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-jdoe",
+   "user": "ckim",
+   "process": "outlook.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "outlook.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-906209",
+   "ts": "2026-11-10T01:47:11.727666Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-rpatel",
+   "user": "bwhite",
+   "process": "teams.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "teams.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-680539",
+   "ts": "2026-11-10T01:47:25.004671Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "nnguyen",
+   "host": "wks-rpatel",
+   "src_ip": "10.30.2.206",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-219531",
+   "ts": "2026-11-10T01:47:57.951927Z",
+   "source": "proxy",
+   "user": "kchen",
+   "host": "wks-bwhite",
+   "url": "https://salesforce.example/login",
+   "domain": "teams.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 8820
+  },
+  {
+   "id": "EVT-653521",
+   "ts": "2026-11-10T01:48:05.042587Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-tgarcia",
+   "user": "bwhite",
+   "process": "excel.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "excel.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-157250",
+   "ts": "2026-11-10T01:48:56.807294Z",
+   "source": "proxy",
+   "user": "bwhite",
+   "host": "wks-bwhite",
+   "url": "https://update.microsoft.example/",
+   "domain": "github.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 2167
+  },
+  {
+   "id": "EVT-366828",
+   "ts": "2026-11-10T01:50:25.718981Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "tgarcia",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.2.164",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-331255",
+   "ts": "2026-11-10T01:51:24.110880Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "bwhite",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.6.145",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-857366",
+   "ts": "2026-11-10T01:51:39.343721Z",
+   "source": "dns",
+   "host": "wks-rpatel",
+   "query": "outlook.office.example",
+   "qtype": "A",
+   "answer": "198.18.8.14"
+  },
+  {
+   "id": "EVT-346936",
+   "ts": "2026-11-10T01:52:24.617917Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-bwhite",
+   "user": "asmith",
+   "process": "outlook.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "outlook.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-738338",
+   "ts": "2026-11-10T01:52:52.291597Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-asmith",
+   "user": "rpatel",
+   "process": "outlook.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "outlook.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-836122",
+   "ts": "2026-11-10T01:53:27.907376Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-mlee",
+   "user": "kchen",
+   "process": "outlook.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "outlook.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-489802",
+   "ts": "2026-11-10T01:54:31.563914Z",
+   "source": "proxy",
+   "user": "mlee",
+   "host": "wks-bwhite",
+   "url": "https://news.example/assets/app.js",
+   "domain": "salesforce.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 5973
+  },
+  {
+   "id": "EVT-988201",
+   "ts": "2026-11-10T01:54:40.790046Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "nnguyen",
+   "host": "wks-mlee",
+   "src_ip": "10.30.7.247",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-114634",
+   "ts": "2026-11-10T01:56:28.989879Z",
+   "source": "proxy",
+   "user": "mlee",
+   "host": "wks-bwhite",
+   "url": "https://cdn.jsdelivr.example/login",
+   "domain": "news.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 2195
+  },
+  {
+   "id": "EVT-901843",
+   "ts": "2026-11-10T01:56:43.735279Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "jdoe",
+   "host": "wks-rpatel",
+   "src_ip": "10.30.3.129",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-398867",
+   "ts": "2026-11-10T01:58:12.476317Z",
+   "source": "dns",
+   "host": "wks-jdoe",
+   "query": "news.example",
+   "qtype": "A",
+   "answer": "198.18.241.113"
+  },
+  {
+   "id": "EVT-696135",
+   "ts": "2026-11-10T01:58:25.000262Z",
+   "source": "proxy",
+   "user": "mlee",
+   "host": "wks-tgarcia",
+   "url": "https://wiki.corp.example/assets/app.js",
+   "domain": "wiki.corp.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 3863
+  },
+  {
+   "id": "EVT-106374",
+   "ts": "2026-11-10T01:58:32.573296Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "mlee",
+   "host": "wks-mlee",
+   "src_ip": "10.30.2.149",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-171561",
+   "ts": "2026-11-10T02:01:09.492447Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "lmartin",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.2.163",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-931612",
+   "ts": "2026-11-10T02:02:12.848188Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "mlee",
+   "host": "wks-kchen",
+   "src_ip": "10.30.1.24",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-475613",
+   "ts": "2026-11-10T02:02:14.890919Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "jdoe",
+   "host": "wks-kchen",
+   "src_ip": "10.30.6.233",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-144698",
+   "ts": "2026-11-10T02:03:01.910205Z",
+   "source": "dns",
+   "host": "wks-mlee",
+   "query": "github.example",
+   "qtype": "A",
+   "answer": "198.18.178.94"
+  },
+  {
+   "id": "EVT-838705",
+   "ts": "2026-11-10T02:03:06.373604Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-jdoe",
+   "user": "rpatel",
+   "process": "chrome.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "chrome.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-648707",
+   "ts": "2026-11-10T02:03:17.921526Z",
+   "source": "dns",
+   "host": "wks-rpatel",
+   "query": "cdn.jsdelivr.example",
+   "qtype": "A",
+   "answer": "198.18.104.140"
+  },
+  {
+   "id": "EVT-328627",
+   "ts": "2026-11-10T02:03:22.472959Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "mlee",
+   "host": "wks-bwhite",
+   "src_ip": "10.30.3.59",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-579486",
+   "ts": "2026-11-10T02:04:03.173703Z",
+   "source": "dns",
+   "host": "wks-bwhite",
+   "query": "wiki.corp.example",
+   "qtype": "A",
+   "answer": "198.18.69.94"
+  },
+  {
+   "id": "EVT-109222",
+   "ts": "2026-11-10T02:05:00.136710Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "ckim",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.3.195",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-952024",
+   "ts": "2026-11-10T02:05:41.413585Z",
+   "source": "dns",
+   "host": "wks-mlee",
+   "query": "wiki.corp.example",
+   "qtype": "A",
+   "answer": "198.18.5.12"
+  },
+  {
+   "id": "EVT-673926",
+   "ts": "2026-11-10T02:06:37.661900Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "tgarcia",
+   "host": "wks-asmith",
+   "src_ip": "10.30.5.22",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-681666",
+   "ts": "2026-11-10T02:07:24.842147Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "ckim",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.7.128",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-343915",
+   "ts": "2026-11-10T02:07:56.331275Z",
+   "source": "proxy",
+   "user": "jdoe",
+   "host": "wks-bwhite",
+   "url": "https://github.example/login",
+   "domain": "outlook.office.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 831
+  },
+  {
+   "id": "EVT-785269",
+   "ts": "2026-11-10T02:10:19.642740Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "nnguyen",
+   "host": "wks-asmith",
+   "src_ip": "10.30.6.63",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-856629",
+   "ts": "2026-11-10T02:10:33.924020Z",
+   "source": "dns",
+   "host": "wks-rpatel",
+   "query": "update.microsoft.example",
+   "qtype": "A",
+   "answer": "198.18.151.104"
+  },
+  {
+   "id": "EVT-854939",
+   "ts": "2026-11-10T02:10:39.845013Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "bwhite",
+   "host": "wks-kchen",
+   "src_ip": "10.30.3.171",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-762881",
+   "ts": "2026-11-10T02:11:24.493060Z",
+   "source": "dns",
+   "host": "wks-mlee",
+   "query": "wiki.corp.example",
+   "qtype": "A",
+   "answer": "198.18.137.71"
+  },
+  {
+   "id": "EVT-785393",
+   "ts": "2026-11-10T02:12:46.748882Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-tgarcia",
+   "user": "asmith",
+   "process": "outlook.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "outlook.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-128428",
+   "ts": "2026-11-10T02:14:20.327624Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "mlee",
+   "host": "wks-mlee",
+   "src_ip": "10.30.9.155",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-138861",
+   "ts": "2026-11-10T02:14:35.919833Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "asmith",
+   "host": "wks-tgarcia",
+   "src_ip": "10.30.4.187",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-242989",
+   "ts": "2026-11-10T02:15:57.773654Z",
+   "source": "proxy",
+   "user": "bwhite",
+   "host": "wks-jdoe",
+   "url": "https://github.example/login",
+   "domain": "cdn.jsdelivr.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 5219
+  },
+  {
+   "id": "EVT-692046",
+   "ts": "2026-11-10T02:16:23.230500Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "tgarcia",
+   "host": "wks-kchen",
+   "src_ip": "10.30.9.60",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-268860",
+   "ts": "2026-11-10T02:16:53.061841Z",
+   "source": "proxy",
+   "user": "asmith",
+   "host": "wks-asmith",
+   "url": "https://update.microsoft.example/assets/app.js",
+   "domain": "salesforce.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 8801
+  },
+  {
+   "id": "EVT-540124",
+   "ts": "2026-11-10T02:16:56.982690Z",
+   "source": "proxy",
+   "user": "asmith",
+   "host": "wks-mlee",
+   "url": "https://github.example/",
+   "domain": "update.microsoft.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 4738
+  },
+  {
+   "id": "EVT-690179",
+   "ts": "2026-11-10T02:17:15.605354Z",
+   "source": "dns",
+   "host": "wks-mlee",
+   "query": "news.example",
+   "qtype": "A",
+   "answer": "198.18.245.29"
+  },
+  {
+   "id": "EVT-468149",
+   "ts": "2026-11-10T02:17:53.042499Z",
+   "source": "dns",
+   "host": "wks-bwhite",
+   "query": "teams.example",
+   "qtype": "A",
+   "answer": "198.18.177.74"
+  },
+  {
+   "id": "EVT-538264",
+   "ts": "2026-11-10T02:18:43.894166Z",
+   "source": "dns",
+   "host": "wks-asmith",
+   "query": "cdn.jsdelivr.example",
+   "qtype": "A",
+   "answer": "198.18.228.105"
+  },
+  {
+   "id": "EVT-570568",
+   "ts": "2026-11-10T02:18:49.543323Z",
+   "source": "dns",
+   "host": "wks-tgarcia",
+   "query": "outlook.office.example",
+   "qtype": "A",
+   "answer": "198.18.205.241"
+  },
+  {
+   "id": "EVT-174930",
+   "ts": "2026-11-10T02:19:06.934948Z",
+   "source": "proxy",
+   "user": "nnguyen",
+   "host": "wks-jdoe",
+   "url": "https://cdn.jsdelivr.example/login",
+   "domain": "teams.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 901
+  },
+  {
+   "id": "EVT-988048",
+   "ts": "2026-11-10T02:20:08.178536Z",
+   "source": "proxy",
+   "user": "lmartin",
+   "host": "wks-mlee",
+   "url": "https://cdn.jsdelivr.example/",
+   "domain": "github.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 5435
+  },
+  {
+   "id": "EVT-458419",
+   "ts": "2026-11-10T02:20:46.449269Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "mlee",
+   "host": "wks-mlee",
+   "src_ip": "10.30.2.5",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-478924",
+   "ts": "2026-11-10T02:21:48.641725Z",
+   "source": "proxy",
+   "user": "asmith",
+   "host": "wks-rpatel",
+   "url": "https://update.microsoft.example/login",
+   "domain": "github.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 2072
+  },
+  {
+   "id": "EVT-315523",
+   "ts": "2026-11-10T02:23:56.808931Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "rpatel",
+   "host": "wks-kchen",
+   "src_ip": "10.30.8.116",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-944827",
+   "ts": "2026-11-10T02:24:21.960823Z",
+   "source": "dns",
+   "host": "wks-tgarcia",
+   "query": "outlook.office.example",
+   "qtype": "A",
+   "answer": "198.18.0.33"
+  },
+  {
+   "id": "EVT-959301",
+   "ts": "2026-11-10T02:24:45.205033Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "mlee",
+   "host": "wks-kchen",
+   "src_ip": "10.30.7.182",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-453917",
+   "ts": "2026-11-10T02:24:46.659280Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-asmith",
+   "user": "ckim",
+   "process": "outlook.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "outlook.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-756927",
+   "ts": "2026-11-10T02:25:02.801668Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "jdoe",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.8.179",
+   "method": "ntlm"
+  },
+  {
+   "id": "EVT-697595",
+   "ts": "2026-11-10T02:25:30.135316Z",
+   "source": "dns",
+   "host": "wks-bwhite",
+   "query": "news.example",
+   "qtype": "A",
+   "answer": "198.18.77.137"
+  },
+  {
+   "id": "EVT-352937",
+   "ts": "2026-11-10T02:25:38.577530Z",
+   "source": "proxy",
+   "user": "rpatel",
+   "host": "wks-tgarcia",
+   "url": "https://salesforce.example/login",
+   "domain": "salesforce.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 1651
+  },
+  {
+   "id": "EVT-746740",
+   "ts": "2026-11-10T02:27:51.304429Z",
+   "source": "proxy",
+   "user": "lmartin",
+   "host": "wks-tgarcia",
+   "url": "https://update.microsoft.example/assets/app.js",
+   "domain": "salesforce.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 2541
+  },
+  {
+   "id": "EVT-508202",
+   "ts": "2026-11-10T02:29:08.701221Z",
+   "source": "dns",
+   "host": "wks-asmith",
+   "query": "github.example",
+   "qtype": "A",
+   "answer": "198.18.130.229"
+  },
+  {
+   "id": "EVT-649094",
+   "ts": "2026-11-10T02:29:25.512568Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "tgarcia",
+   "host": "wks-kchen",
+   "src_ip": "10.30.7.217",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-379037",
+   "ts": "2026-11-10T02:29:57.013959Z",
+   "source": "dns",
+   "host": "wks-tgarcia",
+   "query": "salesforce.example",
+   "qtype": "A",
+   "answer": "198.18.95.80"
+  },
+  {
+   "id": "EVT-887214",
+   "ts": "2026-11-10T02:29:57.636430Z",
+   "source": "dns",
+   "host": "wks-tgarcia",
+   "query": "github.example",
+   "qtype": "A",
+   "answer": "198.18.132.226"
+  },
+  {
+   "id": "EVT-607799",
+   "ts": "2026-11-10T02:29:58.384910Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "kchen",
+   "host": "wks-mlee",
+   "src_ip": "10.30.1.40",
+   "method": "sso"
+  },
+  {
+   "id": "EVT-239123",
+   "ts": "2026-11-10T02:30:31.980444Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-jdoe",
+   "user": "lmartin",
+   "process": "excel.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "excel.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-613741",
+   "ts": "2026-11-10T02:31:41.182061Z",
+   "source": "dns",
+   "host": "wks-kchen",
+   "query": "salesforce.example",
+   "qtype": "A",
+   "answer": "198.18.218.51"
+  },
+  {
+   "id": "EVT-970838",
+   "ts": "2026-11-10T02:32:30.708257Z",
+   "source": "proxy",
+   "user": "tgarcia",
+   "host": "wks-rpatel",
+   "url": "https://teams.example/assets/app.js",
+   "domain": "salesforce.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 7267
+  },
+  {
+   "id": "EVT-380299",
+   "ts": "2026-11-10T02:33:01.322180Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-jdoe",
+   "user": "mlee",
+   "process": "teams.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "teams.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-706815",
+   "ts": "2026-11-10T02:33:13.353763Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-kchen",
+   "user": "tgarcia",
+   "process": "svchost.exe",
+   "parent_process": "services.exe",
+   "cmdline": "svchost.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-315910",
+   "ts": "2026-11-10T02:33:24.187812Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-mlee",
+   "user": "ckim",
+   "process": "excel.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "excel.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-459208",
+   "ts": "2026-11-10T02:34:32.475790Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-tgarcia",
+   "user": "jdoe",
+   "process": "teams.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "teams.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-299499",
+   "ts": "2026-11-10T02:34:59.710211Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-tgarcia",
+   "user": "mlee",
+   "process": "outlook.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "outlook.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-435328",
+   "ts": "2026-11-10T02:35:27.996801Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "lmartin",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.6.93",
+   "method": "kerberos"
+  },
+  {
+   "id": "EVT-751621",
+   "ts": "2026-11-10T02:35:46.931824Z",
+   "source": "auth",
+   "event": "logon_failure",
+   "user": "kchen",
+   "host": "wks-rpatel",
+   "src_ip": "10.30.7.213",
+   "reason": "bad password"
+  },
+  {
+   "id": "EVT-499599",
+   "ts": "2026-11-10T02:36:04.976445Z",
+   "source": "proxy",
+   "user": "asmith",
+   "host": "wks-asmith",
+   "url": "https://news.example/assets/app.js",
+   "domain": "update.microsoft.example",
+   "method": "GET",
+   "status": 200,
+   "bytes_out": 2831
+  },
+  {
+   "id": "EVT-828069",
+   "ts": "2026-11-10T02:36:40.915776Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-asmith",
+   "user": "kchen",
+   "process": "chrome.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "chrome.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-394492",
+   "ts": "2026-11-10T02:36:53.384071Z",
+   "source": "edr",
+   "event": "process_start",
+   "host": "wks-kchen",
+   "user": "rpatel",
+   "process": "outlook.exe",
+   "parent_process": "explorer.exe",
+   "cmdline": "outlook.exe",
+   "signed": true
+  },
+  {
+   "id": "EVT-178249",
+   "ts": "2026-11-10T02:39:50.722971Z",
+   "source": "auth",
+   "event": "logon_success",
+   "user": "lmartin",
+   "host": "wks-jdoe",
+   "src_ip": "10.30.4.65",
+   "method": "sso"
+  }
+ ],
+ "labels": {
+  "verdict": "benign_true_positive",
+  "severity": "low",
+  "techniques": [
+   "T1046"
+  ],
+  "required_techniques": [],
+  "key_evidence": [
+   "EVT-337718"
+  ],
+  "expected_actions": [],
+  "forbidden_actions": [
+   [
+    "block_ip",
+    "10.20.0.5"
+   ],
+   [
+    "isolate_host",
+    "vuln-scanner-01|10.20.0.5"
+   ]
+  ]
+ }
+}
