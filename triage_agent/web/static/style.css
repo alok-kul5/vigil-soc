@@ -21,7 +21,7 @@ button { font: inherit; cursor: pointer; }
 .bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 18px;
   background: var(--panel); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 2; flex-wrap: wrap; }
 .brand { font-weight: 650; display: flex; align-items: center; gap: 10px; }
-.mark { width: 14px; height: 14px; border-radius: 4px; background: var(--accent); }
+.mark { width: 22px; height: 22px; border-radius: 6px; }
 .right { display: flex; gap: 12px; align-items: center; }
 .approver { color: var(--ink-2); font-size: 13px; }
 .approver input { margin-left: 6px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); width: 150px; }

@@ -1,6 +1,10 @@
-# Security Alert Triage Agent
+<p align="center"><img src="docs/brand/mark.svg" width="88" height="88" alt="Vigil logo"></p>
 
-[![CI](https://github.com/alok-kul5/security-alert-triage-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/alok-kul5/security-alert-triage-agent/actions/workflows/ci.yml)
+<h1 align="center">Vigil</h1>
+
+<p align="center"><b>Watches every alert. Acts on none without you.</b><br>An AI security triage agent on a free local model: it investigates alerts with real tools, cites its evidence, and waits for a human to approve any action.</p>
+
+[![CI](https://github.com/alok-kul5/vigil-soc/actions/workflows/ci.yml/badge.svg)](https://github.com/alok-kul5/vigil-soc/actions/workflows/ci.yml)
 
 An AI agent that investigates security alerts the way a tier-2 SOC analyst does. It
 searches the logs, checks IP and domain reputation, looks up assets and users, and maps
@@ -162,3 +166,7 @@ eval/results/     saved evaluation runs
 ## License
 
 MIT. MITRE ATT&CK® is a registered trademark of The MITRE Corporation; technique names are used for reference.
+
+---
+
+<sub>One of six projects by [Alok Kulkarni](https://alok.is-a.dev): [Hearth](https://github.com/alok-kul5/hearth-iot) home sensors · [Headway](https://github.com/alok-kul5/headway-transit) transit data · **Vigil** security triage · [Loupe](https://github.com/alok-kul5/loupe-vision) defect inspection · [Kharcha](https://github.com/alok-kul5/kharcha-finance) personal finance · [Stockroom](https://github.com/alok-kul5/stockroom-inventory) inventory.</sub>

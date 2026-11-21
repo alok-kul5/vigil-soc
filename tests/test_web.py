@@ -62,4 +62,4 @@ def test_event_lookup_and_page(client):
     ev = load_incident("INC-001")["events"][0]["id"]
     assert c.get(f"/api/incidents/INC-001/events/{ev}").json()["id"] == ev
     assert c.get("/api/incidents/INC-001/events/EVT-0").status_code == 404
-    assert "Alert Triage" in c.get("/").text
+    assert "Vigil" in c.get("/").text
