@@ -6,6 +6,8 @@
 
 [![CI](https://github.com/alok-kul5/vigil-soc/actions/workflows/ci.yml/badge.svg)](https://github.com/alok-kul5/vigil-soc/actions/workflows/ci.yml)
 
+![The Vigil console: an Office-macro alert investigated by Qwen3 4B, with cited findings and a timeline](docs/console.jpg)
+
 An AI agent that investigates security alerts the way a tier-2 SOC analyst does. It
 searches the logs, checks IP and domain reputation, looks up assets and users, and maps
 behaviour to MITRE ATT&CK. Then it writes an incident report in which **every claim
