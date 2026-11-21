@@ -17,19 +17,20 @@ approverInput.addEventListener("change", () => { try { localStorage.setItem("app
 
 async function loadHealth() {
   const h = await api("/api/health");
-  $("#health").textContent = h.api_configured ? `${h.model} · local · live` : "read-only (model offline)";
+  $("#health").textContent = h.api_configured ? `${h.model} · local · live` : "read-only · model offline";
+  $("#health").className = `pill ${h.api_configured ? "live" : "off"}`;
   state.live = h.api_configured;
 }
 
 async function loadQueue() {
   state.incidents = await api("/api/incidents");
   $("#queue-count").textContent = `· ${state.incidents.length}`;
-  $("#queue").innerHTML = state.incidents.map((i) => {
+  $("#queue").innerHTML = state.incidents.map((i, n) => {
     const r = i.latest_run;
     const tag = i.running ? `<span class="pill">investigating…</span>`
       : r && r.verdict ? `<span class="verdict ${r.verdict}">${VERDICT[r.verdict]}</span>${r.pending_actions ? `<span class="pill">${r.pending_actions} awaiting approval</span>` : ""}`
       : `<span class="pill">new</span>`;
-    return `<li data-id="${i.id}" class="${state.current === i.id ? "active" : ""}">
+    return `<li data-id="${i.id}" style="--i:${n}" class="${state.current === i.id ? "active" : ""}">
       <span class="t">${esc(i.alert.rule)}</span>
       <span class="meta"><span class="sev ${i.alert.severity}">${i.alert.severity}</span>${i.id} ${tag}</span></li>`;
   }).join("");
@@ -104,9 +105,42 @@ function traceHtml(spans, run) {
     </tbody></table></details></section>`;
 }
 
+/* A slow dot-wave behind the alert header: a quiet "the console is watching" signal. */
+let fieldRaf = 0;
+function field(canvas) {
+  cancelAnimationFrame(fieldRaf);
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const color = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#f2b33d";
+  const draw = (t) => {
+    if (!canvas.isConnected) return;
+    const dpr = Math.min(2, devicePixelRatio || 1), w = canvas.clientWidth, h = canvas.clientHeight;
+    if (canvas.width !== w * dpr) { canvas.width = w * dpr; canvas.height = h * dpr; }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = color;
+    const gap = 14, k = t / 2400;
+    for (let x = 0; x < w + gap; x += gap) {
+      for (let y = 0; y < h + gap; y += gap) {
+        const wave = Math.sin(x / 90 + k) * Math.cos(y / 70 - k * 0.7) + Math.sin((x + y) / 160 + k * 0.5);
+        const fade = Math.max(0, (x / w) * 1.3 - 0.35);
+        const a = Math.max(0, (wave + 0.6) / 2.6) * fade;
+        if (a < 0.03) continue;
+        ctx.globalAlpha = a * 0.55;
+        ctx.beginPath(); ctx.arc(x, y + wave * 3, 0.6 + a * 1.4, 0, 6.283); ctx.fill();
+      }
+    }
+    if (!still && !document.hidden) fieldRaf = requestAnimationFrame(draw);
+  };
+  draw(performance.now());
+  document.onvisibilitychange = () => { if (!document.hidden && !still) fieldRaf = requestAnimationFrame(draw); };
+}
+
 async function open(id) {
   state.current = id;
   clearInterval(state.poll);
+  history.replaceState(null, "", `#${id}`);
   document.querySelectorAll("#queue li").forEach((li) => li.classList.toggle("active", li.dataset.id === id));
   const inc = await api(`/api/incidents/${id}`);
   const runId = inc.runs[0];
@@ -115,7 +149,7 @@ async function open(id) {
   const a = inc.alert;
   const running = state.incidents.find((i) => i.id === id)?.running;
   $("#detail").innerHTML = `
-    <section class="card">
+    <section class="card alert-card"><canvas class="field" aria-hidden="true"></canvas>
       <div class="head"><div><h1>${esc(inc.title)}</h1><span class="muted">${inc.id} · ${esc(a.rule)} · ${inc.event_count} log events available</span></div>
       <button class="primary" id="go" ${!state.live || running ? "disabled" : ""}>${running ? "Investigating…" : run ? "Re-investigate" : "Investigate"}</button></div>
       <p>${esc(a.summary)}</p>
@@ -126,6 +160,7 @@ async function open(id) {
     ${run ? (run.status === "running" ? `<section class="card"><h2>Investigating…</h2><p class="muted">Tool calls appear in the trace as they happen.</p></section>` : reportHtml(run) + actionsHtml(run)) : ""}
     ${run ? traceHtml(spans, run) : ""}`;
 
+  field($(".field"));
   const go = $("#go");
   if (go) go.onclick = async () => {
     go.disabled = true;
@@ -155,4 +190,9 @@ async function open(id) {
   });
 }
 
-loadHealth().then(loadQueue).then(() => state.incidents[0] && open(state.incidents[0].id));
+// Incidents are deep-linkable: /#INC-004 opens that one.
+loadHealth().then(loadQueue).then(() => {
+  const want = state.incidents.find((i) => i.id === decodeURIComponent(location.hash.slice(1)));
+  const first = want || state.incidents[0];
+  if (first) open(first.id);
+});
