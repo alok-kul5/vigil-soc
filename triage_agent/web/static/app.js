@@ -35,7 +35,49 @@ async function loadQueue() {
       <span class="meta"><span class="sev ${i.alert.severity}">${i.alert.severity}</span>${i.id} ${tag}</span></li>`;
   }).join("");
   document.querySelectorAll("#queue li").forEach((li) => (li.onclick = () => open(li.dataset.id)));
+  applyFilter();
 }
+
+/* Filter chips: hide queue rows that don't match (display only, nothing is deleted). */
+state.filter = "all";
+function applyFilter() {
+  document.querySelectorAll("#queue li").forEach((li) => {
+    const inc = state.incidents.find((i) => i.id === li.dataset.id);
+    const f = state.filter;
+    const ok = f === "all" || (f === "pending" ? (inc?.latest_run?.pending_actions || 0) > 0 : inc?.alert.severity === f);
+    li.hidden = !ok;
+  });
+}
+document.querySelectorAll("#filters button").forEach((b) => (b.onclick = () => {
+  document.querySelectorAll("#filters button").forEach((x) => x.classList.toggle("on", x === b));
+  state.filter = b.dataset.f;
+  applyFilter();
+}));
+
+/* j / k move through the visible queue, like a mail client. */
+document.addEventListener("keydown", (e) => {
+  if (e.target.closest("input, textarea, dialog") || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.key !== "j" && e.key !== "k") return;
+  const rows = [...document.querySelectorAll("#queue li:not([hidden])")];
+  const at = rows.findIndex((li) => li.dataset.id === state.current);
+  const next = rows[Math.max(0, Math.min(rows.length - 1, at + (e.key === "j" ? 1 : -1)))];
+  if (next && next.dataset.id !== state.current) { open(next.dataset.id); next.scrollIntoView({ block: "nearest" }); }
+});
+
+/* Click any entity value to copy it. */
+let toastTimer = 0;
+function toast(msg) {
+  const t = $("#toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 1600);
+}
+document.addEventListener("click", async (e) => {
+  const dd = e.target.closest(".kv dd[data-copy]");
+  if (!dd) return;
+  try { await navigator.clipboard.writeText(dd.dataset.copy); toast(`Copied ${dd.dataset.copy}`); } catch { toast("Couldn't copy"); }
+});
 
 function chips(ids) {
   return `<span class="chips">${(ids || []).map((id) => `<span class="chip" data-ev="${esc(id)}">${esc(id)}</span>`).join("")}</span>`;
@@ -153,7 +195,7 @@ async function open(id) {
       <div class="head"><div><h1>${esc(inc.title)}</h1><span class="muted">${inc.id} · ${esc(a.rule)} · ${inc.event_count} log events available</span></div>
       <button class="primary" id="go" ${!state.live || running ? "disabled" : ""}>${running ? "Investigating…" : run ? "Re-investigate" : "Investigate"}</button></div>
       <p>${esc(a.summary)}</p>
-      <dl class="kv">${Object.entries(a.entities).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(Array.isArray(v) ? v.join(", ") : v)}</dd>`).join("")}
+      <dl class="kv">${Object.entries(a.entities).map(([k, v]) => `<dt>${esc(k)}</dt><dd data-copy="${esc(Array.isArray(v) ? v.join(", ") : v)}" title="Click to copy">${esc(Array.isArray(v) ? v.join(", ") : v)}</dd>`).join("")}
       <dt>triggered by</dt><dd>${chips(a.triggering_event_ids)}</dd><dt>alert severity</dt><dd><span class="sev ${a.severity}">${a.severity}</span></dd></dl>
       ${!state.live ? `<p class="notice">The model isn't reachable (is Ollama running?), so new investigations are disabled. Recorded runs are shown below.</p>` : ""}
     </section>
